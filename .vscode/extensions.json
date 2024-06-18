@@ -1,0 +1,34 @@
+{
+  "recommendations": [
+    // python関連
+    "ms-python.python",
+    "charliermarsh.ruff",
+    "ms-python.mypy-type-checker",
+    "littlefoxteam.vscode-python-test-adapter",
+    "njpwerner.autodocstring",
+    "KevinRose.vsc-python-indent",
+    // json, yaml, toml formatter
+    "esbenp.prettier-vscode",
+    "redhat.vscode-yaml",
+    "tamasfe.even-better-toml",
+    // Git関連
+    "GitHub.vscode-pull-request-github",
+    "github.vscode-github-actions",
+    "mhutchie.git-graph",
+    "eamodio.gitlens",
+    "github.vscode-github-actions",
+    // markdown
+    "yzhang.markdown-all-in-one",
+    "DavidAnson.vscode-markdownlint",
+    "bierner.github-markdown-preview",
+    // その他
+    "streetsidesoftware.code-spell-checker",
+    "naumovs.color-highlight",
+    "Gruntfuggly.todo-tree",
+    "oderwat.indent-rainbow",
+    "ms-vscode.live-server",
+    "shardulm94.trailing-spaces",
+    "usernamehw.errorlens",
+    "ryanluker.vscode-coverage-gutters"
+  ]
+}

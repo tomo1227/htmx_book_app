@@ -1,0 +1,23 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python Debug",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "python": "${command:python.interpreterPath}"
+    },
+    {
+      "name": "Django Debug",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/manage.py",
+      "args": ["runserver"],
+      "django": true,
+      "justMyCode": false,
+      "python": "${command:python.interpreterPath}"
+    }
+  ]
+}

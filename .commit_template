@@ -1,0 +1,36 @@
+
+
+# ----------------------------------------
+# Prefix:Emojis message
+# commitメッセージで使用するための絵文字一覧とその説明です。
+# ----------------------------------------
+# ==== Prefix ====
+# fix		バグ修正、クリティカルなバグ修正なら hotfix
+# feat		feat は feature の略
+# docs		ドキュメントのみ修正
+# style		空白、セミコロン、行、コーディングフォーマットなどの修正
+# refactor	整理 （リファクタリング等）
+# test		テスト追加や間違っていたテストの修正
+# build		ビルドツールやライブラリで自動生成されたものをコミットするとき
+# chore     その他
+
+# ==== Emojis ====
+# 🐛:bug:         バグ修正 (fix)
+# 👍:+1:          機能改善 (fix/feat)
+# ✨:sparkles:    部分的な機能追加 (feat)
+# 🎉:tada:        盛大に祝うべき大きな機能追加 (feat)
+# 🚀:rocket:      パフォーマンス改善 (feat)
+# 🔒:lock:        新機能の公開範囲の制限 (feat)
+# 👮:cop:         セキュリティ関連の改善 (feat)
+# 📚:books:        ドキュメント修正 (docs)
+# 👕:shirt:       Lintエラーの修正やコードスタイルの修正 (style)
+# ♻️:recycle:      リファクタリング (refactor)
+# 🚿:shower:      不要な機能・使われなくなった機能の削除 (refactor)
+# 📦:package:     新規パッケージやライブラリの追加
+# 💚:green_heart: テストやCIの修正・改善 (test)
+# 👷:construction_worker:             ビルドシステムや外部依存関係の変更
+# 🔧:wrench:      依存パッケージなどのアップデート (chore)
+# 🌐:globe_with_meridians:      i18n (国際化) 関連の変更
+# 👓:eyeglasses:  a11y (アクセシビリティ) 関連の変更
+# 📈:chart_with_upwards_trend:     メトリクスやログの追加/改善
+# ----------------------------------------

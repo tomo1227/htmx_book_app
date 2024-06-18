@@ -1,0 +1,165 @@
+{
+  "editor.formatOnSave": false,
+  "editor.formatOnPaste": false,
+  "editor.formatOnType": false,
+  "editor.guides.bracketPairs": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.ruff": "explicit",
+    "source.organizeImports.ruff": "explicit"
+  },
+  "editor.rulers": [120],
+  "[python]": {
+    "editor.tabSize": 4,
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit"
+    },
+    "editor.formatOnSave": true,
+    "editor.insertSpaces": true,
+    "files.insertFinalNewline": true
+  },
+  "ruff.organizeImports": true,
+  "ruff.format.args": ["--config=app/pyproject.toml"],
+  "python.testing.pytestArgs": [
+    ".",
+    "--ds=iam.settings.testing",
+    // NOTE: カバレッジを出力するとdebugできない
+    "--no-cov"
+  ],
+  "coverage-gutters.showGutterCoverage": true,
+  "coverage-gutters.showLineCoverage": true,
+  "coverage-gutters.showRulerCoverage": true,
+  "pythonTestExplorer.testFramework": "pytest",
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true,
+  "autoDocstring.docstringFormat": "google",
+  "python.createEnvironment.contentButton": "hide",
+  "python.analysis.inlayHints.pytestParameters": true,
+  "python.analysis.inlayHints.variableTypes": true,
+  "python.analysis.inlayHints.functionReturnTypes": true,
+  "python.analysis.typeCheckingMode": "standard",
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.completeFunctionParens": true,
+  "python.analysis.autoFormatStrings": true,
+  "python.analysis.fixAll": [
+    "source.convertImportFormat",
+    "source.unusedImports"
+  ],
+  "python.languageServer": "Pylance",
+  "python.analysis.indexing": true,
+  "python.analysis.packageIndexDepths": [
+    // NOTE: 一部のライブラリではstubのインストールが必要
+    {
+      "name": "",
+      "depth": 10,
+      "includeAllSymbols": true
+    }
+  ],
+  "mypy-type-checker.args": [
+    "--ignore-missing-imports",
+    "--disallow-untyped-defs"
+    // "--config-file=<file>"
+  ],
+  "mypy-type-checker.importStrategy": "fromEnvironment",
+  "[jsonc][json]": {
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.insertSpaces": true,
+    "files.insertFinalNewline": true
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true
+  },
+  "markdownlint.config": {
+    "MD025": false,
+    "MD033": false
+  },
+  "markdownlint.run": "onSave",
+  "[toml]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "tamasfe.even-better-toml",
+    "editor.formatOnSave": true,
+    "editor.insertSpaces": true,
+    "files.insertFinalNewline": true
+  },
+  "[yaml][dockercompose][github-actions-workflow]": {
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.formatOnSave": true,
+    "editor.insertSpaces": true,
+    "files.insertFinalNewline": true
+  },
+  "yaml.format.enable": true,
+  "todo-tree.general.tags": [
+    "HACK",
+    "FIXME",
+    "TODO",
+    "XXX",
+    "REVIEW",
+    "OPTIMIZE",
+    "CHANGED",
+    "NOTE",
+    "WARNING"
+  ],
+  "todo-tree.highlights.defaultHighlight": {
+    "foreground": "#000000",
+    "background": "#2C7CFF",
+    "iconColor": "#24ff41",
+    "opacity": 45
+  },
+  "todo-tree.highlights.customHighlight": {
+    "HACK": {
+      "icon": "zap"
+    },
+    "FIXME": {
+      "icon": "flame",
+      "background": "#f11e1e",
+      "iconColor": "#f11e1e"
+    },
+    "TODO": {
+      "icon": "check-circle"
+    },
+    "XXX": {
+      "icon": "x-circle",
+      "background": "#f8831d",
+      "iconColor": "#f8831d"
+    },
+    "REVIEW": {
+      "icon": "pin"
+    },
+    "OPTIMIZE": {
+      "icon": "rocket",
+      "background": "#f8831d",
+      "iconColor": "#f8831d"
+    },
+    "CHANGED": {
+      "icon": "issue-reopened"
+    },
+    "NOTE": {
+      "icon": "thumbsup"
+    },
+    "WARNING": {
+      "icon": "alert",
+      "background": "#f11e1e",
+      "iconColor": "#f11e1e"
+    }
+  },
+  "cSpell.ignorePaths": [".vscode", ".devcontainer/devcontainer.json"],
+  "cSpell.words": [
+    "devcontainer",
+    "devcontainers",
+    "dockercompose",
+    "sacloud",
+    "viewsets"
+  ],
+  "errorLens.excludeBySource": ["cSpell"],
+  "errorLens.gutterIconsEnabled": true,
+  "errorLens.gutterIconSet": "emoji"
+}

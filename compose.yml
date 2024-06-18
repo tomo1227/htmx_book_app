@@ -1,0 +1,13 @@
+services:
+  devcontainer:
+    hostname: ${DEVCONTAINTER_HOST_NAME}
+    container_name: ${DEVCONTAINTER_CONTAINER_NAME}
+    image: ${DEVCONTAINTER_IMAGE_NAME}
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - .:/workspace:cached
+    ports:
+      - ${HOST_IP}:${DEVCONTAINTER_HOST_PORT}:80
+    tty: true

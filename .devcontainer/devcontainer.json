@@ -3,7 +3,7 @@
   "service": "devcontainer",
   "workspaceFolder": "/workspace",
   "dockerComposeFile": ["../compose.yml"],
-  "forwardPorts": [8080],
+  "forwardPorts": [8000],
   "remoteUser": "vscode",
   "remoteEnv": {
     "USE_DEV_CONTAINER": "true",
@@ -22,7 +22,9 @@
       "settings": {
         "python.defaultInterpreterPath": "/usr/local/python/current/bin/python",
         "python.terminal.activateEnvironment": false,
-        "python.testing.pytestPath": "/usr/local/py-utils/bin/pytest"
+        "python.testing.pytestPath": "/usr/local/py-utils/bin/pytest",
+        "python.pipenvPath": "/usr/local/py-utils/bin/pipenv",
+        "ruff.interpreter": ["/usr/local/python/current/bin/python"]
       },
       "extensions": [
         // python関連

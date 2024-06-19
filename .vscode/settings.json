@@ -5,7 +5,8 @@
   "editor.guides.bracketPairs": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.ruff": "explicit",
-    "source.organizeImports.ruff": "explicit"
+    "source.organizeImports.ruff": "explicit",
+    "source.fixAll.markdownlint": "explicit"
   },
   "editor.rulers": [120],
   "[python]": {
@@ -20,10 +21,10 @@
     "files.insertFinalNewline": true
   },
   "ruff.organizeImports": true,
-  "ruff.format.args": ["--config=app/pyproject.toml"],
+  "ruff.format.args": ["--config=pyproject.toml"],
+  "python.testing.pytestPath": "/usr/local/python/current/bin/pytest",
   "python.testing.pytestArgs": [
-    ".",
-    "--ds=iam.settings.testing",
+    "tests",
     // NOTE: カバレッジを出力するとdebugできない
     "--no-cov"
   ],
@@ -156,7 +157,11 @@
     "devcontainer",
     "devcontainers",
     "dockercompose",
+    "fastapi",
     "sacloud",
+    "starlette",
+    "templating",
+    "uvicorn",
     "viewsets"
   ],
   "errorLens.excludeBySource": ["cSpell"],

@@ -5,14 +5,6 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
-# wsl使用時はroot以外書き込み権限がなくなるので、オーナーを現在のユーザに合わせる
-ARCH=$(uname -m)
-if [ "$ARCH" != "arm64" ] && [ "$ARCH" != "aarch64" ]; then
-  echo "Start to change owner root for windows users."
-  sudo chown -R $USER:$USER .
-  echo "Changed owner."
-fi
-
 #  ~/.gitconfigをローカルからコピーする
 echo "start to copy local ~/.gitconfig"
 git config --global --add safe.directory $1
@@ -28,3 +20,5 @@ pip install --no-cache-dir poetry
 poetry config virtualenvs.create false
 
 poetry install
+
+make run

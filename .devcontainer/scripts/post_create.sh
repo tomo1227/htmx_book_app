@@ -5,4 +5,3 @@ echo "source ~/.git-completion.bash" >> ~/.bashrc
 
 # bash auto completion
 sudo apt update && sudo apt install bash-completion
-

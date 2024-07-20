@@ -45,7 +45,7 @@ jobs:
       - name: Pre-build image and run make ci-build in dev container
         uses: devcontainers/ci@v0.3
         with:
-          imageName: ghcr.io/tomo1227/template_python
+          imageName: ghcr.io/tomo1227/htmx_book_app
           push: always
           runCmd: |
             python -V

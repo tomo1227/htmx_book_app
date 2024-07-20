@@ -78,8 +78,10 @@
     "editor.formatOnType": true
   },
   "markdownlint.config": {
+    "MD010": false,
     "MD025": false,
-    "MD033": false
+    "MD033": false,
+    "MD034": false,
   },
   "markdownlint.run": "onSave",
   "[toml]": {

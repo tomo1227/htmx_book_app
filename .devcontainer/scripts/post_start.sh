@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/bash
 
 if [ -z "$1" ]; then
   echo "Error: No directory provided."
@@ -21,4 +21,6 @@ poetry config virtualenvs.create false
 
 poetry install
 
-make run
+make run &
+
+source ~/.bashrc

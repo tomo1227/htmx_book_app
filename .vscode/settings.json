@@ -81,7 +81,7 @@
     "MD010": false,
     "MD025": false,
     "MD033": false,
-    "MD034": false,
+    "MD034": false
   },
   "markdownlint.run": "onSave",
   "[toml]": {
@@ -160,6 +160,7 @@
     "devcontainers",
     "dockercompose",
     "fastapi",
+    "htmx",
     "sacloud",
     "starlette",
     "templating",

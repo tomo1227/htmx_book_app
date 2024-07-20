@@ -23,4 +23,4 @@ poetry install
 
 make run &
 
-source ~/.bashrc
+. ~/.bashrc

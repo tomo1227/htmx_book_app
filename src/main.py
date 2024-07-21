@@ -28,6 +28,10 @@ async def handle_request(request: Request):
 
 @app.get("/", response_class=HTMLResponse)
 async def read_root(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
+
+@app.get("/section1", response_class=HTMLResponse)
+async def read_section1(request: Request):
     return templates.TemplateResponse("section1.html", {"request": request})
 
 if __name__ == "__main__":

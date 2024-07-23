@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+  <h1>Section4</h1>
+  <h2>hx-target</h2>
+  <h3>hx-targetがない場合</h3>
+  <p>I love htmx!</p>
+  <button hx-get="/hello">クリック</button>
+
+  <h3>hx-targetを指定した場合</h3>
+  <p id="htmx">I love htmx!</p>
+  <button hx-get="/hello" hx-target="#htmx">クリック</button>
+
+  <h2>拡張CSSセレクタ</h2>
+  <h3>this</h3>
+  <p id="this">thisは要素自身を指す</p>
+  <button hx-get="/hello" hx-target="this" hx-trigger="click">クリック</button>
+
+  <h3>Closest CSSセレクタ</h3>
+  <div>
+    <p>hoge</p>
+    <div>
+      <p>Closestは一番近い親を指す</p>
+      <button hx-get="/hello" hx-target="closest div" hx-trigger="click">クリック</button>
+    </div>
+  </div>
+{% endblock %}

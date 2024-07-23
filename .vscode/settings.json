@@ -71,6 +71,19 @@
     "editor.insertSpaces": true,
     "files.insertFinalNewline": true
   },
+  "[html]": {
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "editor.insertSpaces": true,
+    "files.insertFinalNewline": true
+  },
+  "files.associations": { "*.html": "jinja-html" },
+  "[jinja-html]": {
+    "editor.tabSize": 2,
+    "editor.formatOnSave": false,
+    "editor.insertSpaces": true,
+    "files.insertFinalNewline": true
+  },
   "[markdown]": {
     "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
     "editor.formatOnPaste": true,

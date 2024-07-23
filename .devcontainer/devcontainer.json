@@ -35,6 +35,7 @@
         "njpwerner.autodocstring",
         "KevinRose.vsc-python-indent",
         "wholroyd.jinja",
+        "samuelcolvin.jinjahtml",
         // json, yaml, toml formatter
         "esbenp.prettier-vscode",
         "redhat.vscode-yaml",

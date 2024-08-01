@@ -14,16 +14,38 @@
   <button hx-get="/hello" hx-target="#htmx">クリック</button>
 
   <h2>拡張CSSセレクタ</h2>
-  <h3>this</h3>
-  <p id="this">thisは要素自身を指す</p>
-  <button hx-get="/hello" hx-target="this" hx-trigger="click">クリック</button>
 
-  <h3>Closest CSSセレクタ</h3>
+  <h3>this</h3>
+  <p>A</p>
+  <button hx-get="/hello" hx-target="this">クリック</button>
+  <p>B</p>
+
+  <h3>closest CSSセレクタ</h3>
   <div>
-    <p>hoge</p>
+    <p>A</p>
     <div>
-      <p>Closestは一番近い親を指す</p>
-      <button hx-get="/hello" hx-target="closest div" hx-trigger="click">クリック</button>
+      <p>B</p>
+      <button hx-get="/hello" hx-target="closest div">クリック</button>
     </div>
   </div>
+
+  <h3>find CSSセレクタ</h3>
+  <p>A</p>
+  <button hx-get="/hello" hx-target="find p">
+    <p>B</p>
+    <p>C</p>
+    クリック
+  </button>
+
+  <h3>previous CSSセレクタ</h3>
+  <p>A</p>
+  <p>B</p>
+  <button hx-get="/hello" hx-target="previous p">クリック</button>
+  <p>C</p>
+
+  <h2>next CSSセレクタ</h2>
+  <p>A</p>
+  <button hx-get="/hello" hx-target="next p">クリック</button>
+  <p>B</p>
+  <p>C</p>
 {% endblock %}

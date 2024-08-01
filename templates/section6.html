@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+  <h1>section6</h1>
+
+  <h2>once</h2>
+  <p id="target1">foo<p>
+  <button hx-get="/random" hx-target="#target1" hx-trigger="click">クリック</button>
+  <p id="target2">hoge<p></p>
+  <button hx-get="/random" hx-target="#target2" hx-trigger="click once">クリック</button>
+
+  <h2>changed</h2>
+  <p id="target3">foo<p>
+  <input hx-get="/random" hx-target="#target3" hx-trigger="keyup"/>
+  <p id="target4">hoge<p>
+  <input hx-get="/random" hx-target="#target4" hx-trigger="keyup changed"/>
+{% endblock %}

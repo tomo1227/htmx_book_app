@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+  <h1>section5</h1>
+
+  <h2>トリガーフィルタ1</h2>
+  <p id="target1">foo<p>
+  <button hx-get="/hello" hx-target="#target1" hx-trigger="click[true]">クリック</button>
+
+  <h2>トリガーフィルタ2</h2>
+  <p id="target2">foo<p>
+  <button hx-get="/hello" hx-target="#target2" hx-trigger="click[false]">クリック</button>
+
+  <h2>トリガーフィルタ3</h2>
+  <p id="target3">foo<p>
+  <button hx-get="/hello" hx-target="#target3" hx-trigger="click[shiftKey]">クリック</button>
+
+  <h2>トリガーフィルタ4</h2>
+  <p id="target4">foo<p>
+  <button hx-get="/hello" hx-target="#target4" hx-trigger="click[checkGlobalState()]">クリック</button>
+  <script>
+    function checkGlobalState() {
+      return true;
+    }
+  </script>
+
+  <h2>トリガーフィルタ5</h2>
+  <p id="target5">foo<p>
+  <button hx-get="/hello" hx-target="#target5" hx-trigger="click[shiftKey&&altKey]">クリック</button>
+{% endblock %}

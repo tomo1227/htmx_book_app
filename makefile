@@ -22,3 +22,15 @@ down:
 .PHONY: ext
 ext:
 	./install_extentions.sh
+
+.PHONY: lint
+lint:
+	ruff check
+
+.PHONY: fix
+fix:
+	ruff check --fix
+
+.PHONY: format
+format:
+	ruff format

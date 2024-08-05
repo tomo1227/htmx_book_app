@@ -12,6 +12,7 @@ on:
       - ".gitignore"
       - "**.md"
   workflow_dispatch:
+
 jobs:
   run-test:
     runs-on: ubuntu-latest
@@ -28,3 +29,19 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
+
+      - name: Install Package
+        run: |
+          pip install --no-cache-dir --upgrade pip
+          pip install --no-cache-dir poetry
+          poetry config virtualenvs.create false
+          poetry install
+
+      - name: Lint
+        run: ruff check --output-format=github
+
+      - name: Format
+        run: ruff format --check
+
+      - name: check vulnerability
+        run: pipenv check

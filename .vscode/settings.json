@@ -104,15 +104,21 @@
     "editor.insertSpaces": true,
     "files.insertFinalNewline": true
   },
+  "json.schemaDownload.enable": true,
+  "yaml.format.enable": true,
   "[yaml][dockercompose][github-actions-workflow]": {
-    "editor.tabSize": 2,
-    "editor.autoIndent": "advanced",
     "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.tabSize": 2,
     "editor.formatOnSave": true,
     "editor.insertSpaces": true,
-    "files.insertFinalNewline": true
+    "files.insertFinalNewline": true,
+    "editor.autoIndent": "advanced",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    }
   },
-  "yaml.format.enable": true,
   "todo-tree.general.tags": [
     "HACK",
     "FIXME",

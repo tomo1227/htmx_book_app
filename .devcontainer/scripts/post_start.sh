@@ -14,11 +14,14 @@ git config pull.rebase false
 git config --global commit.template .commit_template
 echo "Success git config."
 
+echo "Install pip & poetry"
 pip install --no-cache-dir --upgrade pip
 pip install --no-cache-dir poetry
 
+echo "Set poetry config"
 poetry config virtualenvs.create false
 
+echo "Install package"
 poetry install
 
 . ~/.bashrc

@@ -1,0 +1,30 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths-ignore:
+      - "**.md"
+      - ".vscode/**"
+      - ".devcontainer/**"
+      - ".gitignore"
+      - "**.md"
+  workflow_dispatch:
+jobs:
+  run-test:
+    runs-on: ubuntu-latest
+
+    container:
+      image: python:3.11-bullseye
+
+    steps:
+      # ワークフローの可視化
+      - uses: Kesin11/actions-timeline@v2
+
+      # チェックアウト
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0

@@ -1,38 +1,18 @@
 [tool.ruff]
 exclude = [
-    ".bzr",
-    ".direnv",
-    ".eggs",
     ".git",
-    ".git-rewrite",
-    ".hg",
-    ".ipynb_checkpoints",
     ".mypy_cache",
-    ".nox",
-    ".pants.d",
-    ".pyenv",
     ".pytest_cache",
-    ".pytype",
     ".ruff_cache",
-    ".svn",
-    ".tox",
-    ".venv",
     ".vscode",
-    "__pypackages__",
-    "_build",
-    "buck-out",
-    "build",
-    "dist",
-    "node_modules",
-    "site-packages",
-    "venv",
+    "__init__.py",
 ]
 line-length = 120
 indent-width = 4
 
-ignore = ["D415", "E203", "S101", "D100", "D103", "S104"]
+ignore = ["A003", "D415", "E203", "S101", "D100", "D103", "S104"]
 
-select = ["N", "E", "D", "W", "F", "I", "C90", "S"]
+select = ["A", "N", "E", "D", "W", "F", "I", "C90", "S"]
 
 [tool.ruff.pydocstyle]
 convention = "google"

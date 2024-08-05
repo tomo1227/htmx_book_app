@@ -12,7 +12,7 @@
   },
   "features": {
     "ghcr.io/devcontainers/features/python:1": {
-      "version": "3.12.3"
+      "version": "3.12.4"
     }
   },
   "postCreateCommand": "sh .devcontainer/scripts/post_create.sh",

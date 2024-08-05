@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: python:3.11-bullseye
+      image: python:3.12-bullseye
 
     steps:
       # ワークフローの可視化

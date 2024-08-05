@@ -18,7 +18,6 @@ echo "Install pip & poetry"
 pip install --no-cache-dir --upgrade pip
 pip install --no-cache-dir poetry
 
-echo "Set poetry config"
 poetry config virtualenvs.create false
 
 echo "Install package"

@@ -34,7 +34,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.12"
 pytest = "^8.3.3"
-pytest-cov = "^5.0.0"
+pytest-cov = "^6.0.0"
 pytest-xdist = "^3.6.1"
 fastapi = "^0.115.4"
 uvicorn = { extras = ["standard"], version = "^0.32.0" }

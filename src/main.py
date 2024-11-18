@@ -36,6 +36,13 @@ async def read_section5(request: Request):
 async def read_section6(request: Request):
     return templates.TemplateResponse("section6.html", {"request": request})
 
+@app.get("/section7", response_class=HTMLResponse)
+async def read_section7(request: Request):
+    return templates.TemplateResponse("section7.html", {"request": request})
+
+@app.get("/section8", response_class=HTMLResponse)
+async def read_section8(request: Request):
+    return templates.TemplateResponse("section8.html", {"request": request})
 
 @app.get("/health_check", response_class=JSONResponse)
 async def health_check():
@@ -62,6 +69,11 @@ async def generate_random_number(request: Request):
     html_content = f"<span style='color:#ff0000; font-weight: bold;'>{random_number}</span>"
     return HTMLResponse(html_content)
 
+@app.get("/random_polling", response_class=HTMLResponse)
+async def load_polling(request: Request):
+    random_number = secrets.randbelow(10)
+    html_content = f"<p style='color:#ff0000; font-weight: bold;' hx-get='/random_polling' hx-trigger='load delay:1s'>{random_number}</p>"
+    return HTMLResponse(html_content)
 
 if __name__ == "__main__":
     import uvicorn

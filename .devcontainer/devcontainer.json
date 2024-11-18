@@ -12,8 +12,19 @@
     "POETRY_REQUESTS_TIMEOUT": "100"
   },
   "features": {
-    "ghcr.io/devcontainers/features/python:1": {
-      "version": "3.12.4"
+    "ghcr.io/devcontainers/features/python": {
+      "version": "3.12.5",
+      "installTools": false,
+      "toolsToInstall": "",
+      "installPath": "/usr/local/vscode/python"
+    },
+    "ghcr.io/devcontainers/features/common-utils": {
+      "installZsh": false,
+      "installOhMyZsh": false,
+      "installOhMyZshConfig": false,
+      "username": "vscode",
+      "userUid": "1000",
+      "userGid": "1000"
     }
   },
   "postCreateCommand": "sh .devcontainer/scripts/post_create.sh",
@@ -21,11 +32,10 @@
   "customizations": {
     "vscode": {
       "settings": {
-        "python.defaultInterpreterPath": "/usr/local/python/current/bin/python",
+        "python.defaultInterpreterPath": "/usr/local/vscode/python/current/bin/",
         "python.terminal.activateEnvironment": false,
-        "python.testing.pytestPath": "/usr/local/py-utils/bin/pytest",
-        "python.pipenvPath": "/usr/local/py-utils/bin/pipenv",
-        "ruff.interpreter": ["/usr/local/python/current/bin/python"]
+        "python.testing.pytestPath": "/usr/local/vscode/python/current/bin/pytest",
+        "ruff.interpreter": ["/usr/local/vscode/python/current/bin/ruff"]
       },
       "extensions": [
         // python関連
@@ -42,12 +52,8 @@
         "redhat.vscode-yaml",
         "tamasfe.even-better-toml",
         // Git関連
-        "GitHub.vscode-pull-request-github",
-        "github.vscode-github-actions",
         "mhutchie.git-graph",
         "eamodio.gitlens",
-        "donjayamanne.githis",
-        "github.vscode-github-actions",
         // markdown
         "yzhang.markdown-all-in-one",
         "DavidAnson.vscode-markdownlint",
@@ -57,7 +63,6 @@
         "naumovs.color-highlight",
         "Gruntfuggly.todo-tree",
         "oderwat.indent-rainbow",
-        "ms-vscode.live-server",
         "shardulm94.trailing-spaces",
         "usernamehw.errorlens",
         "ryanluker.vscode-coverage-gutters"

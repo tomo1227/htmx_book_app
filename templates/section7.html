@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+  <h1>Section7</h1>
+
+  <h2>load</h2>
+  <p hx-get="/random" hx-trigger="load delay:3s">foo<p>
+
+  <h2>relealed</h2>
+  <p style="height: 100vh;">画面をスクロールしてください</p>
+  <p id="target1" style="height:100px">foo</p>
+  <p hx-target="#target1" hx-get="/random" hx-trigger="revealed delay:1s">hoge<p>
+
+  <h2>intersect</h2>
+  <p style="height: 100vh;">画面をスクロールしてください</p>
+  <p id="target2" style="height:100px">foo</p>
+  <p hx-target="#target2" hx-get="/random" hx-trigger="intersect delay:1s">hoge</p>
+
+  <h2>rootを指定したintersect</h2>
+  <p id="target3" style="height:100px">foo</p>
+  <div class="scroll-container">
+    <div class="item" hx-target="#target3" hx-get="/random" hx-trigger="intersect root:.scroll-container">Item 1</div>
+    <div class="item">Item 2</div>
+    <div class="item">Item 3</div>
+    <div class="item">Item 4</div>
+    <div class="item">Item 5</div>
+  </div>
+
+  <h2>thresholdを指定したintersect</h2>
+  {# <p id="target4" style="height:100px">hoge</p> #}
+  <p style="height: 100vh;">画面をスクロールしてください</p>
+  <p id="target4" style="height:100px">foo</p>
+  <p style="height:100px">foo</p>
+  <p style="height:100px">foo</p>
+  <p style="height:100px">foo</p>
+  <p style="height:100px">foo</p>
+  <p hx-target="#target4" hx-get="/random" hx-trigger="intersect threshold:1.0">hoge</p>
+  {# <p id="target4" style="height:100px">foo</p> #}
+  <p style="height: 100vh;">画面をスクロールしてください</p>
+{% endblock %}

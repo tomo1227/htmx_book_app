@@ -1,4 +1,5 @@
 import secrets
+import time
 
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
@@ -44,6 +45,10 @@ async def read_section7(request: Request):
 async def read_section8(request: Request):
     return templates.TemplateResponse("section8.html", {"request": request})
 
+@app.get("/section9", response_class=HTMLResponse)
+async def read_section9(request: Request):
+    return templates.TemplateResponse("section9.html", {"request": request})
+
 @app.get("/health_check", response_class=JSONResponse)
 async def health_check():
     return {"status": "ok"}
@@ -73,6 +78,12 @@ async def generate_random_number(request: Request):
 async def load_polling(request: Request):
     random_number = secrets.randbelow(10)
     html_content = f"<p style='color:#ff0000; font-weight: bold;' hx-get='/random_polling' hx-trigger='load delay:1s'>{random_number}</p>"
+    return HTMLResponse(html_content)
+
+@app.get("/heavy", response_class=HTMLResponse)
+async def heavy_load(request: Request):
+    time.sleep(10)
+    html_content = f"<span style='color:#ff0000; font-weight: bold;'>{"ロード完了！"}</span>"
     return HTMLResponse(html_content)
 
 if __name__ == "__main__":

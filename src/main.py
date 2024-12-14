@@ -52,11 +52,13 @@ async def read_section8(request: Request):
 async def read_section9(request: Request):
     return templates.TemplateResponse("section9.html", {"request": request})
 
+@app.get("/section10", response_class=HTMLResponse)
+async def read_section10(request: Request):
+    return templates.TemplateResponse("section10.html", {"request": request})
 
 @app.get("/health_check", response_class=JSONResponse)
 async def health_check():
     return {"status": "ok"}
-
 
 @app.api_route("/hello", methods=["GET", "POST", "PUT", "PATCH", "DELETE"], response_class=HTMLResponse)
 async def hello(request: Request):

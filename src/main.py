@@ -56,6 +56,11 @@ async def read_section9(request: Request):
 async def read_section10(request: Request):
     return templates.TemplateResponse("section10.html", {"request": request})
 
+@app.get("/section11", response_class=HTMLResponse)
+async def read_section11(request: Request):
+    return templates.TemplateResponse("section11.html", {"request": request})
+
+
 @app.get("/health_check", response_class=JSONResponse)
 async def health_check():
     return {"status": "ok"}
@@ -91,8 +96,18 @@ async def load_polling(request: Request):
 
 @app.get("/heavy", response_class=HTMLResponse)
 async def heavy_load(request: Request):
-    time.sleep(10)
+    time.sleep(5)
     html_content = f"<span style='color:#ff0000; font-weight: bold;'>{"ロード完了！"}</span>"
+    return HTMLResponse(html_content)
+
+
+num = 0
+
+
+@app.get("/hxsync", response_class=HTMLResponse)
+async def hx_sync(request: Request):
+    time.sleep(3)
+    html_content = "<span style='color:#ff0000; font-weight: bold;'>hello</span>"
     return HTMLResponse(html_content)
 
 

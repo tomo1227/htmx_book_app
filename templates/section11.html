@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1>Section11</h1>
+
+<h2>drop</h2>
+<p id="drop-target1">foo</p>
+<p id="drop-target2">hoge</p>
+<p id="drop-target3">fuga</p>
+<form hx-get="/hxsync" hx-target="#drop-target1">
+  <div hx-get="/hxsync" hx-target="#drop-target2" hx-trigger="change" hx-sync="closest form">
+    <input name="title" type="text" hx-get="/hxsync" hx-trigger="change" hx-target="#drop-target3"
+      hx-sync="closest div:drop" />
+    <button name="drop-form" type="submit">Submit</button>
+  </div>
+</form>
+
+
+<h2>abort</h2>
+<p id="abort-target1">foo</p>
+<p id="abort-target2">hoge</p>
+<p id="abort-target3">fuga</p>
+<form hx-get="/hxsync" hx-target="#abort-target1">
+  <div hx-get="/hxsync" hx-target="#abort-target2" hx-trigger="change" hx-sync="closest form">
+    <input name="title" type="text" hx-get="/hxsync" hx-trigger="change" hx-target="#abort-target3"
+      hx-sync="closest div:abort" />
+    <button type="submit">Submit</button>
+  </div>
+</form>
+
+<h2>replace</h2>
+<p id="replace-target1">foo</p>
+<p id="replace-target2">hoge</p>
+<p id="replace-target3">fuga</p>
+<form hx-get="/hxsync" hx-target="#replace-target1">
+  <div hx-get="/hxsync" hx-target="#replace-target2" hx-trigger="change" hx-sync="closest form">
+    <input name="title" type="text" hx-get="/hxsync" hx-trigger="change" hx-target="#replace-target3"
+      hx-sync="closest div:replace" />
+    <button type="submit">Submit</button>
+  </div>
+</form>
+
+<h2>queue(all)</h2>
+<p id="queue-all-target1">foo</p>
+<p id="queue-all-target2">hoge</p>
+<p id="queue-all-target3">fuga</p>
+<form hx-get="/hxsync" hx-target="#queue-all-target1">
+  <div hx-get="/hxsync" hx-target="#queue-all-target2" hx-trigger="change" hx-sync="closest form">
+    <input name="title" type="text" hx-get="/hxsync" hx-trigger="change" hx-target="#queue-all-target3"
+      hx-sync="closest div:queue last" />
+    <button type="submit">Submit</button>
+  </div>
+</form>
+
+<h2>queue(first)</h2>
+<p id="queue-first-target1">foo</p>
+<p id="queue-first-target2">hoge</p>
+<p id="queue-first-target3">fuga</p>
+<form hx-get="/hxsync" hx-target="#queue-first-target1">
+  <div hx-get="/hxsync" hx-target="#queue-first-target2" hx-trigger="change" hx-sync="closest form">
+    <input id="queue-first" name="title" type="text" hx-get="/hxsync" hx-trigger="change"
+      hx-target="#queue-first-target3" hx-sync="closest div:queue last" />
+    <button type="submit">Submit</button>
+  </div>
+</form>
+
+<h2>queue(last)</h2>
+<p id="queue-last-target1">foo</p>
+<p id="queue-last-target2">hoge</p>
+<p id="queue-last-target3">fuga</p>
+<form hx-get="/hxsync" hx-target="#queue-last-target1">
+  <div hx-get="/hxsync" hx-target="#queue-last-target2" hx-sync="closest form">
+    <input name="title" type="text" hx-get="/hxsync" hx-trigger="change" hx-target="#queue-last-target3"
+      hx-sync="closest div:queue last" />
+    <button type="submit">Submit</button>
+  </div>
+</form>
+{% endblock %}

@@ -3,49 +3,49 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-  <h1>Section4</h1>
-  <h2>hx-target</h2>
-  <h3>hx-targetがない場合</h3>
-  <p>I love htmx!</p>
-  <button hx-get="/hello">クリック</button>
+<h1>Section4</h1>
+<h2>hx-target</h2>
+<h3>hx-targetがない場合</h3>
+<p>I love htmx!</p>
+<button hx-get="/hello">クリック</button>
 
-  <h3>hx-targetを指定した場合</h3>
-  <p id="htmx">I love htmx!</p>
-  <button hx-get="/hello" hx-target="#htmx">クリック</button>
+<h3>hx-targetを指定した場合</h3>
+<p id="htmx">I love htmx!</p>
+<button hx-get="/hello" hx-target="#htmx">クリック</button>
 
-  <h2>拡張CSSセレクタ</h2>
+<h2>拡張CSSセレクタ</h2>
 
-  <h3>this</h3>
+<h3>this</h3>
+<p>A</p>
+<button hx-get="/hello" hx-target="this">クリック</button>
+<p>B</p>
+
+<h3>closest CSSセレクタ</h3>
+<div>
   <p>A</p>
-  <button hx-get="/hello" hx-target="this">クリック</button>
-  <p>B</p>
-
-  <h3>closest CSSセレクタ</h3>
   <div>
-    <p>A</p>
-    <div>
-      <p>B</p>
-      <button hx-get="/hello" hx-target="closest div">クリック</button>
-    </div>
-  </div>
-
-  <h3>find CSSセレクタ</h3>
-  <p>A</p>
-  <button hx-get="/hello" hx-target="find p">
     <p>B</p>
-    <p>C</p>
-    クリック
-  </button>
+    <button hx-get="/hello" hx-target="closest div">クリック</button>
+  </div>
+</div>
 
-  <h3>previous CSSセレクタ</h3>
-  <p>A</p>
-  <p>B</p>
-  <button hx-get="/hello" hx-target="previous p">クリック</button>
-  <p>C</p>
-
-  <h2>next CSSセレクタ</h2>
-  <p>A</p>
-  <button hx-get="/hello" hx-target="next p">クリック</button>
+<h3>find CSSセレクタ</h3>
+<p>A</p>
+<button hx-get="/hello" hx-target="find p">
   <p>B</p>
   <p>C</p>
+  クリック
+</button>
+
+<h2>next CSSセレクタ</h2>
+<p>A</p>
+<button hx-get="/hello" hx-target="next p">クリック</button>
+<p>B</p>
+<p>C</p>
+
+<h3>previous CSSセレクタ</h3>
+<p>A</p>
+<p>B</p>
+<button hx-get="/hello" hx-target="previous p">クリック</button>
+<p>C</p>
 {% endblock %}

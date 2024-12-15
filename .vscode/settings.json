@@ -71,16 +71,13 @@
     "editor.insertSpaces": true,
     "files.insertFinalNewline": true
   },
-  "[html]": {
+  "files.associations": {
+    "*.html": "jinja-html"
+  },
+  "[jinja-html][html]": {
     "editor.tabSize": 2,
     "editor.formatOnSave": true,
-    "editor.insertSpaces": true,
-    "files.insertFinalNewline": true
-  },
-  "files.associations": { "*.html": "jinja-html" },
-  "[jinja-html]": {
-    "editor.tabSize": 2,
-    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "vscode.html-language-features",
     "editor.insertSpaces": true,
     "files.insertFinalNewline": true
   },

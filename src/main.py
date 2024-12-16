@@ -104,13 +104,17 @@ async def heavy_load(request: Request):
     return HTMLResponse(html_content)
 
 
-num = 0
+@app.post("/send-form", response_class=HTMLResponse)
+async def send_form(request: Request):
+    time.sleep(1)
+    html_content = "<span style='color:#ff0000; font-weight: bold;'>送信完了しました。</span>"
+    return HTMLResponse(html_content)
 
 
-@app.get("/hxsync", response_class=HTMLResponse)
-async def hx_sync(request: Request):
-    time.sleep(3)
-    html_content = "<span style='color:#ff0000; font-weight: bold;'>hello</span>"
+@app.post("/validate", response_class=HTMLResponse)
+async def validate(request: Request):
+    time.sleep(1)
+    html_content = "<span style='color:#ff0000; font-weight: bold;'>正しい値を入力してください</span>"
     return HTMLResponse(html_content)
 
 

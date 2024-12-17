@@ -62,6 +62,9 @@ async def read_section10(request: Request):
 async def read_section11(request: Request):
     return templates.TemplateResponse("section11.html", {"request": request})
 
+@app.get("/section12", response_class=HTMLResponse)
+async def read_section12(request: Request):
+    return templates.TemplateResponse("section12.html", {"request": request})
 
 @app.get("/health_check", response_class=JSONResponse)
 async def health_check():

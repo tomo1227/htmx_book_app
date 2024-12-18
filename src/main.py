@@ -62,6 +62,38 @@ async def read_section10(request: Request):
 async def read_section11(request: Request):
     return templates.TemplateResponse("section11.html", {"request": request})
 
+@app.get("/section12", response_class=HTMLResponse)
+async def read_section12(request: Request):
+    return templates.TemplateResponse("section12.html", {"request": request})
+
+@app.get("/section13", response_class=HTMLResponse)
+async def read_section13(request: Request):
+    return templates.TemplateResponse("section13.html", {"request": request})
+
+@app.get("/section14", response_class=HTMLResponse)
+async def read_section14(request: Request):
+    return templates.TemplateResponse("section14.html", {"request": request})
+
+@app.get("/section15", response_class=HTMLResponse)
+async def read_section15(request: Request):
+    return templates.TemplateResponse("section15.html", {"request": request})
+
+@app.get("/section16", response_class=HTMLResponse)
+async def read_section16(request: Request):
+    return templates.TemplateResponse("section16.html", {"request": request})
+
+@app.get("/section17", response_class=HTMLResponse)
+async def read_section17(request: Request):
+    return templates.TemplateResponse("section17.html", {"request": request})
+
+@app.get("/section18", response_class=HTMLResponse)
+async def read_section18(request: Request):
+    return templates.TemplateResponse("section18.html", {"request": request})
+
+@app.get("/section19", response_class=HTMLResponse)
+async def read_section19(request: Request):
+    return templates.TemplateResponse("section19.html", {"request": request})
+
 
 @app.get("/health_check", response_class=JSONResponse)
 async def health_check():

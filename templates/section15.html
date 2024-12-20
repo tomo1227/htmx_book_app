@@ -1,0 +1,25 @@
+{% extends "base_ext.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1>Section15</h1>
+
+<p>json-enc</p>
+<form hx-post="/send-form" hx-ext='json-enc' hx-params="*" hx-target="#target1">
+  <input name="title" type="text" placeholder="タイトル" />
+  <input name="name" type="text" placeholder="名前" />
+  <input name="age" type="number" placeholder="年齢" />
+  <button type="submit">送信</button>
+</form>
+<p id="target1"></p>
+
+<p>debug</p>
+<button hx-ext="debug">クリック</button>
+
+<p>remove-me</p>
+<div hx-ext="remove-me">
+  <div remove-me="5s">5秒後に消えます</div>
+</div>
+
+{% endblock %}

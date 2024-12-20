@@ -32,4 +32,15 @@
 
 <h2>hx-push-url(カスタムURL)</h2>
 <button hx-get="/random" hx-push-url="/section13/random">クリック</button>
+
+
+<h2>hx-on</h2>
+<button hx-on:click="alert('こんにちは!')">クリック</button>
+
+<h2>htmx:before-request</h2>
+<button hx-get="/random" hx-on:htmx:before-request="alert('こんにちは!')">クリック</button>
+
+<h2>htmx:after-request</h2>
+<button hx-get="/random" hx-on:htmx:before-request="alert('こんにちは!')"
+  hx-on:htmx:after-request="alert('こんばんは!')">クリック</button>
 {% endblock %}

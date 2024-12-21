@@ -1,7 +1,7 @@
 import secrets
 import time
 
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Form, Request
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 from starlette.responses import HTMLResponse
@@ -155,6 +155,18 @@ async def send_form(request: Request):
 async def validate(request: Request):
     time.sleep(1)
     html_content = "<span style='color:#ff0000; font-weight: bold;'>正しい値を入力してください</span>"
+    return HTMLResponse(html_content)
+
+
+@app.post("/greeting")
+async def greeting(name: str = Form(), title: str = Form()):
+    html_content = f"<span style='color:#ff0000; font-weight: bold;'>{title} {name}!</span>"
+    return HTMLResponse(html_content)
+
+
+@app.post("/last-key")
+async def display_last_key(lastKey: str = Form()):
+    html_content = f"<span style='color:#ff0000; font-weight: bold;'>最後に押したキーは「{lastKey}」です。</span>"
     return HTMLResponse(html_content)
 
 

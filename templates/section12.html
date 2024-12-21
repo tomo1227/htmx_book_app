@@ -51,4 +51,14 @@
   <input name="age" type="number" placeholder="年齢" />
   <button hx-post="/send-form" hx-include="preview [name='name']" hx-target="#target5">送信</button>
 </div>
+
+<h2>hx-vals</h2>
+<p id="target6">foo</p>
+<button hx-post="/greeting" hx-vals='{"title": "Hello", "name": "Taro"}' hx-target="#target6">送信</button>
+
+<p id="target7">foo</p>
+<div hx-target="#target7" hx-post="/last-key" hx-trigger="keyup" hx-vals='js:{lastKey: event.key}'>
+  <input type="text" />
+</div>
+
 {% endblock %}

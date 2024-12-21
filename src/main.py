@@ -165,8 +165,8 @@ async def greeting(name: str = Form(), title: str = Form()):
 
 
 @app.post("/last-key")
-async def display_last_key(lastKey: str = Form()):
-    html_content = f"<span style='color:#ff0000; font-weight: bold;'>最後に押したキーは「{lastKey}」です。</span>"
+async def display_last_key(lastkey: str = Form()):
+    html_content = f"<span style='color:#ff0000; font-weight: bold;'>最後に押したキーは「{lastkey}」です。</span>"
     return HTMLResponse(html_content)
 
 

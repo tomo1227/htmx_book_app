@@ -5,4 +5,26 @@
 {% block content %}
 <h1>Section16</h1>
 
+<h2>バリデーション</h2>
+
+<p id="target">入力して送信してください。</p>
+<form id="validate-form" hx-post="/send-form" hx-target="#target">
+  <input name="example" onkeyup="this.setCustomValidity('')" hx-on::validation:validate="if(this.value != 'ペンギン') {
+      this.setCustomValidity('ペンギンと入力しください')
+      htmx.find('#validate-form').reportValidity()
+    }">
+  <button class="btn btn-default">送信</button>
+</form>
+
+
+<h2>htmxとカスタムJSの連携</h2>
+<button hx-get="/random" hx-target="#content" hx-swap="innerHTML">
+  コンテンツをロード
+</button>
+<div id="content"></div>
+<script>
+  htmx.on("htmx:load", function (evt) {
+    console.log("htmxロードイベントが発火されました:", evt.detail.elt);
+  });
+</script>
 {% endblock %}

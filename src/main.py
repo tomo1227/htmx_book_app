@@ -169,6 +169,11 @@ async def display_last_key(lastkey: str = Form()):
     html_content = f"<span style='color:#ff0000; font-weight: bold;'>最後に押したキーは「{lastkey}」です。</span>"
     return HTMLResponse(html_content)
 
+@app.get("/not-found")
+async def get_not_found(request: Request):
+    html_content = f"<span style='color:#ff0000; font-weight: bold;'>こんにちは！</span>"
+    return HTMLResponse(content=html_content, status_code=404)
+
 
 if __name__ == "__main__":
     import uvicorn

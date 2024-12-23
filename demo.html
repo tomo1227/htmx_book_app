@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <script src="https://demo.htmx.org"></script>
+</head>
+
+<body>
+  <button hx-post="/count" hx-target="#result">
+    カウントする
+  </button>
+  <output id="result"></output>
+
+  <script>
+    globalInt = 0;
+  </script>
+  <template url="/count">
+    ${globalInt++}
+  </template>
+</body>

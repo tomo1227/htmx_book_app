@@ -1,8 +1,8 @@
 from fastapi import FastAPI, Form, Request
-from fastapi.responses import HTMLResponse
-from fastapi.templating import Jinja2Templates
-from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
 
 app = FastAPI()
 
@@ -17,6 +17,7 @@ tasks = []
 
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
+    tasks = []
     return templates.TemplateResponse("todo/index.html", {"request": request, "tasks": tasks})
 
 

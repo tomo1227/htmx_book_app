@@ -1,0 +1,128 @@
+html,body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #282b39;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction:column;
+    margin: 0;
+}
+
+h1 {
+    /* height: 100%; */
+    font-size: 45px;
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+#app {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction:column;
+}
+
+#app-content {
+    /* width: 80%; */
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction:column;
+}
+
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 2.5em;
+    padding: 10px;
+}
+
+#task-list {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+}
+
+li {
+    background-color: #595a5b;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 400px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+}
+
+li {
+    p {
+        margin: 2px;
+        padding: 0 10px;
+    }
+}
+
+button[type="submit"]{
+    background-color: #007bff;
+}
+
+button[type="submit"]:hover {
+    background-color:  #0056b3;
+}
+
+button[type="submit"]{
+    background-color: #007bff;
+}
+
+button[type="submit"]:hover {
+    background-color:  #0056b3;
+}
+
+.delete-btn{
+    background-color: #de5252;
+}
+
+.delete-btn:hover {
+    background-color:  #b30000;
+}
+
+button {
+    width:5em;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    height: 100%;
+}
+
+input[type="text"] {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    text-align: center;
+}
+
+input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+}

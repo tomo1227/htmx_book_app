@@ -34,3 +34,7 @@ fix:
 .PHONY: format
 format:
 	ruff format
+
+.PHONY: todo
+todo:
+	@uvicorn src.todo:app --reload

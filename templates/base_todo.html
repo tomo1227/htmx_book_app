@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTMX ToDo App</title>
+  <link rel="stylesheet" href="/static/styles/todo.css">
+  <script src="{{ url_for('static', path='/htmx/htmx.min.js') }}"></script>
+  <script src="{{ url_for('static', path='/htmx/ext/json-enc.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    htmx.on("htmx:confirm", function (e) {
+      const element = e.detail.elt;
+      if (!element.hasAttribute('hx-confirm')) return;
+
+      e.preventDefault();
+
+      Swal.fire({
+        title: "削除の確認",
+        text: element.getAttribute('hx-confirm')
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          e.detail.issueRequest(true);
+        }
+      });
+    });
+  </script>
+  <link rel="icon" href="{{ url_for('static', path='/favicon.ico') }}" />
+  <meta name="htmx-config" content='{
+    "responseHandling": [
+        {"code": "[23]..", "swap": true},
+        {"code": "[45]..", "swap": false, "error": true},
+        {"code": "...", "swap": false}
+    ]
+  }'>
+</head>
+
+<body>
+  {% block content %}{% endblock %}
+</body>
+
+</html>

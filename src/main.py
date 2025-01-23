@@ -140,7 +140,7 @@ async def load_polling(request: Request):
 @app.get("/heavy", response_class=HTMLResponse)
 async def heavy_load(request: Request):
     time.sleep(5)
-    html_content = f"<span style='color:#ff0000; font-weight: bold;'>{"ロード完了！"}</span>"
+    html_content = f"<span style='color:#ff0000; font-weight: bold;'>{'ロード完了！'}</span>"
     return HTMLResponse(html_content)
 
 

@@ -18,13 +18,29 @@
 
 
 <h2>htmxとカスタムJSの連携</h2>
-<button hx-get="/random" hx-target="#content" hx-swap="innerHTML">
+<button hx-get="/random" hx-target="#target2" hx-swap="innerHTML">
   コンテンツをロード
 </button>
-<div id="content"></div>
+<div id="target2"></div>
 <script>
-  htmx.on("htmx:load", function (evt) {
-    console.log("htmxロードイベントが発火されました:", evt.detail.elt);
-  });
+  const target2 = document.querySelector("#target2");
+  if (target2) {
+    htmx.on("htmx:load", function (evt) {
+      if (target2.contains(evt.detail.elt)) {
+        console.log("htmxロードイベントが発火されました:", evt.detail.elt);
+      }
+    });
+  }
+</script>
+
+<h2>aaa</h2>
+<div id="target3">foo</div>
+<button hx-get="/not-found" hx-target="#target3">aaa</button>
+<script>
+  htmx.config.responseHandling = [
+    { code: "204", swap: false },
+    { code: "[45]..", swap: true, error: true },
+    { code: "...", swap: false }
+  ];
 </script>
 {% endblock %}

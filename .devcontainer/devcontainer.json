@@ -35,7 +35,7 @@
         "python.defaultInterpreterPath": "/usr/local/vscode/python/current/bin/",
         "python.terminal.activateEnvironment": false,
         "python.testing.pytestPath": "/usr/local/vscode/python/current/bin/pytest",
-        "ruff.interpreter": ["/usr/local/vscode/python/current/bin/ruff"]
+        "ruff.path": ["/usr/local/vscode/python/current/bin/ruff"]
       },
       "extensions": [
         // python関連

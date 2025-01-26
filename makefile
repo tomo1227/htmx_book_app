@@ -11,12 +11,16 @@ test:
 # コンテナの起動(ローカルでのみ)
 .PHONY: up
 up:
-	docker-compose up -d
+	docker compose up -d
 
 # コンテナの削除(ローカルでのみ)
 .PHONY: down
 down:
-	docker-compose down --rmi all --volumes --remove-orphans
+	docker compose down --rmi all --volumes --remove-orphans
+
+.PHONY: prune
+prune:
+	docker system prune -a
 
 # 推奨拡張機能の一括インストール
 .PHONY: ext
@@ -38,3 +42,7 @@ format:
 .PHONY: todo
 todo:
 	@uvicorn src.todo:app --reload
+
+.PHONY: chat
+chat:
+	@uvicorn src.chat:app --reload

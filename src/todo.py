@@ -5,26 +5,22 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 app = FastAPI()
-
 app.add_middleware(TrustedHostMiddleware, allowed_hosts=["*"])
-
 app.mount("/static", StaticFiles(directory="static"), name="static")
-
-templates = Jinja2Templates(directory="templates")
-
+templates = Jinja2Templates(directory="templates/todo")
 tasks = []
 
 
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
     tasks = []
-    return templates.TemplateResponse("todo/index.html", {"request": request, "tasks": tasks})
+    return templates.TemplateResponse("index.html", {"request": request, "tasks": tasks})
 
 
 @app.post("/add", response_class=HTMLResponse)
 async def add_task(request: Request, task: str = Form(...)):
     tasks.append(task)
-    return templates.TemplateResponse("todo/task.html", {"request": request, "task": task})
+    return templates.TemplateResponse("task.html", {"request": request, "task": task})
 
 
 @app.delete("/delete", response_class=HTMLResponse)

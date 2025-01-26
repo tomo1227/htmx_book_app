@@ -11,7 +11,7 @@ line-length = 120
 indent-width = 4
 
 [tool.ruff.lint]
-ignore = ["A003", "D415", "E203", "S101", "D100", "D103", "S104"]
+ignore = ["A003", "D415", "E203", "S101", "D100", "D101", "D103", "S104"]
 select = ["A", "N", "E", "D", "W", "F", "I", "C90", "S"]
 
 [tool.ruff.lint.pydocstyle]

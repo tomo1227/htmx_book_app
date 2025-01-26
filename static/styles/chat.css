@@ -1,0 +1,103 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#chat-app {
+  width: 100%;
+  max-width: 500px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#chat-app h1 {
+  background: #6200ea;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+#form {
+  display: flex;
+  padding: 15px;
+  border-top: 1px solid #ddd;
+  background: #f9f9f9;
+}
+
+#form input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+#form input:focus {
+  border-color: #6200ea;
+  box-shadow: 0 0 5px rgba(98, 0, 234, 0.5);
+}
+
+#messages {
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message {
+  background: #e3f2fd;
+  padding: 10px 15px;
+  border-radius: 20px;
+  max-width: 75%;
+  word-wrap: break-word;
+}
+
+.message.me {
+  align-self: flex-end;
+  background: #d1c4e9;
+}
+
+.message.other {
+  align-self: flex-start;
+  background: #bbdefb;
+}
+
+#messages::-webkit-scrollbar {
+  width: 8px;
+}
+
+#messages::-webkit-scrollbar-thumb {
+  background: #6200ea;
+  border-radius: 4px;
+}
+
+#messages::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* モバイル対応 */
+@media (max-width: 600px) {
+  #chat-app {
+    max-width: 100%;
+    border-radius: 0;
+  }
+}

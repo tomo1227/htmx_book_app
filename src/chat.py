@@ -46,7 +46,7 @@ async def websocket_endpoint(websocket: WebSocket):
             input_msg = data.get("message")
             now_jst = datetime.now(ZoneInfo("Asia/Tokyo")).strftime("%H:%M:%S")
 
-            msg = f"<div hx-swap-oob='beforeend:#messages'><span>{now_jst} {user_id} > {input_msg}</span><br/></div>"
+            msg = f"<div hx-swap-oob='beforeend:#messages'><span><span style='color: blue;'>{now_jst}</span> <span style='color: green;'>{user_id}</span> <span>{input_msg}</span></span><br/></div>"
 
             message = Message(user=user_id, message=msg)
             await broadcast_message(message)
@@ -57,7 +57,12 @@ async def websocket_endpoint(websocket: WebSocket):
 async def broadcast_message(message: Message):
     for client in clients:
         try:
-            await client.send_text(json.dumps({"user": message.user, "message": message.message}))
+            await client.send_text(
+                json.dumps(
+                    {"user": message.user, "message": message.message},
+                    ensure_ascii=False,
+                )
+            )
         except Exception as e:
             print(f"Error sending message: {e}")
             await client.close()

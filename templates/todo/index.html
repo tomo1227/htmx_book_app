@@ -2,7 +2,7 @@
 
 {% block content %}
 <div id="app">
-  <h1>htmx ToDo App</h1>
+  <h1>ToDo App</h1>
   <div id="app-content">
     <form hx-post="/add" hx-target="#task-list" hx-swap="beforeend" hx-on::after-request="this.reset()">
       <input type="text" name="task" placeholder="新しいタスク" required>

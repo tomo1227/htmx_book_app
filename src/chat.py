@@ -45,10 +45,15 @@ async def websocket_endpoint(websocket: WebSocket):
             data = json.loads(raw_data)
             input_msg = data.get("message")
             now_jst = datetime.now(ZoneInfo("Asia/Tokyo")).strftime("%H:%M:%S")
-
-            msg = f"<div hx-swap-oob='beforeend:#messages'><span><span style='color: blue;'>{now_jst}</span> <span style='color: green;'>{user_id}</span> <span>{input_msg}</span></span><br/></div>"
-
-            message = Message(user=user_id, message=msg)
+            msg = f"""<div hx-swap-oob='beforeend:#messages'>
+                                <span>
+                                    <span style='color:blue'>{now_jst}</span>
+                                    <span style='color:green'>{user_id}</span>
+                                    <span>{input_msg}</span>
+                                </span>
+                            </div>
+                        """
+            message = Message(user=user_id, message=msg.replace("\n", ""))
             await broadcast_message(message)
     except WebSocketDisconnect:
         clients.remove(websocket)

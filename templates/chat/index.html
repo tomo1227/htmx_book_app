@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="chat-app">
+  <h1>HTMX Chat App</h1>
+  <div hx-ext="ws" ws-connect="/chatroom">
+    <form id="form" ws-send hx-on::ws-after-send="this.reset()">
+      <input name="message" type="text" placeholder="メッセージを入力">
+    </form>
+  </div>
+  <div id="messages"></div>
+</div>
+{% endblock %}

@@ -8,7 +8,7 @@ from starlette.responses import HTMLResponse
 from starlette.templating import Jinja2Templates
 
 app = FastAPI()
-templates = Jinja2Templates(directory="templates")
+templates = Jinja2Templates(directory="templates/tutorial")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 

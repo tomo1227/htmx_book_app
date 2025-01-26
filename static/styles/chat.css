@@ -11,16 +11,20 @@ body {
   padding: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
 }
 
 #chat-app {
+  margin: 20px;
+  height: 70%;
   width: 100%;
   max-width: 500px;
   background: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 #chat-app h1 {
@@ -55,13 +59,14 @@ body {
 }
 
 #messages {
-  max-height: 400px;
+  height: calc(100% - 70px); /* ヘッダーとフォームの高さを引く */
   overflow-y: auto;
   padding: 15px;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
+
 
 .message {
   background: #e3f2fd;
@@ -81,7 +86,7 @@ body {
   background: #bbdefb;
 }
 
-#messages::-webkit-scrollbar {
+/* #messages::-webkit-scrollbar {
   width: 8px;
 }
 
@@ -92,12 +97,4 @@ body {
 
 #messages::-webkit-scrollbar-track {
   background: #f1f1f1;
-}
-
-/* モバイル対応 */
-@media (max-width: 600px) {
-  #chat-app {
-    max-width: 100%;
-    border-radius: 0;
-  }
-}
+} */

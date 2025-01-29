@@ -5,4 +5,25 @@ body {
 
 #app-contents li {
   list-style: none;
+  text-align: center;
+}
+
+#app-contents ul {
+  padding: 0;
+}
+
+#htmx-book-app{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+.section-contents{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
 }

@@ -48,6 +48,11 @@ async def hello(request: Request):
         return HTMLResponse("<span style='color:#ff9900;'>DELETEリクエスト!</span>")
 
 
+@app.get("/yahoo", response_class=HTMLResponse)
+async def yahoo(request: Request):
+    return HTMLResponse("<span style='color:#ff0000;'>やっほー!</span>")
+
+
 @app.get("/random", response_class=HTMLResponse)
 async def generate_random_number(request: Request):
     random_number = secrets.randbelow(10)

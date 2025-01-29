@@ -28,8 +28,16 @@ def test_health_check():
         ("delete", 200, "<span style='color:#ff9900;'>DELETEリクエスト!</span>"),
     ],
 )
-def test_hello_requests(subtests, method, expected_status, expected_text):
+def test_hello(subtests, method, expected_status, expected_text):
     with subtests.test(msg=f"Testing {method.upper()} request"):
         response = getattr(client, method)("/hello")
         assert response.status_code == expected_status
-        assert response.text == expected_text
+        assert expected_text == response.text
+
+
+def test_yahoo():
+    expected_text = "<span style='color:#ff0000;'>やっほー!</span>"
+    response = client.get("/yahoo")
+    assert response.status_code == 200
+    assert "text/html" in response.headers["content-type"]
+    assert expected_text == response.text

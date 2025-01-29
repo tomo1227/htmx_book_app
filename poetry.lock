@@ -34,6 +34,26 @@ test = ["anyio[trio]", "coverage[toml] (>=7)", "exceptiongroup (>=1.2.0)", "hypo
 trio = ["trio (>=0.23)"]
 
 [[package]]
+name = "attrs"
+version = "25.1.0"
+description = "Classes Without Boilerplate"
+optional = false
+python-versions = ">=3.8"
+groups = ["main"]
+files = [
+    {file = "attrs-25.1.0-py3-none-any.whl", hash = "sha256:c75a69e28a550a7e93789579c22aa26b0f5b83b75dc4e08fe092980051e1090a"},
+    {file = "attrs-25.1.0.tar.gz", hash = "sha256:1c97078a80c814273a76b2a298a932eb681c87415c11dee0a6921de7f1b02c3e"},
+]
+
+[package.extras]
+benchmark = ["cloudpickle", "hypothesis", "mypy (>=1.11.1)", "pympler", "pytest (>=4.3.0)", "pytest-codspeed", "pytest-mypy-plugins", "pytest-xdist[psutil]"]
+cov = ["cloudpickle", "coverage[toml] (>=5.3)", "hypothesis", "mypy (>=1.11.1)", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins", "pytest-xdist[psutil]"]
+dev = ["cloudpickle", "hypothesis", "mypy (>=1.11.1)", "pre-commit-uv", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins", "pytest-xdist[psutil]"]
+docs = ["cogapp", "furo", "myst-parser", "sphinx", "sphinx-notfound-page", "sphinxcontrib-towncrier", "towncrier (<24.7)"]
+tests = ["cloudpickle", "hypothesis", "mypy (>=1.11.1)", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins", "pytest-xdist[psutil]"]
+tests-mypy = ["mypy (>=1.11.1)", "pytest-mypy-plugins"]
+
+[[package]]
 name = "certifi"
 version = "2024.12.14"
 description = "Python package for providing Mozilla's CA Bundle."
@@ -615,6 +635,22 @@ pytest = ">=4.6"
 testing = ["fields", "hunter", "process-tests", "pytest-xdist", "virtualenv"]
 
 [[package]]
+name = "pytest-subtests"
+version = "0.14.1"
+description = "unittest subTest() support and subtests fixture"
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+files = [
+    {file = "pytest_subtests-0.14.1-py3-none-any.whl", hash = "sha256:e92a780d98b43118c28a16044ad9b841727bd7cb6a417073b38fd2d7ccdf052d"},
+    {file = "pytest_subtests-0.14.1.tar.gz", hash = "sha256:350c00adc36c3aff676a66135c81aed9e2182e15f6c3ec8721366918bbbf7580"},
+]
+
+[package.dependencies]
+attrs = ">=19.2.0"
+pytest = ">=7.4"
+
+[[package]]
 name = "pytest-xdist"
 version = "3.6.1"
 description = "pytest xdist plugin for distributed testing, most importantly across multiple CPUs"
@@ -1038,4 +1074,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.12"
-content-hash = "e12af4fc21bc8790bdac25f7d05668a7c728d785840acfd1c777644801c8dead"
+content-hash = "e423586946df9c1f4aa80529c1b9a2c4a2d8f87f3e40c0246c624c3b390c86de"

@@ -5,17 +5,16 @@
 {% block content %}
 <div class="section-contents">
   <h1>Section4</h1>
-  <h2>hx-target</h2>
-  <h3>hx-targetがない場合</h3>
+
+  <h2>hx-targetがない場合</h2>
   <p>I love htmx!</p>
   <button hx-get="/yahoo">クリック</button>
 
-  <h3>hx-targetを指定した場合</h3>
+  <h2>hx-targetを指定した場合</h2>
   <p id="htmx">I love htmx!</p>
   <button hx-get="/yahoo" hx-target="#htmx">クリック</button>
 
   <h2>拡張CSSセレクタ</h2>
-
   <h3>this</h3>
   <p>A</p>
   <button hx-get="/yahoo" hx-target="this">クリック</button>
@@ -38,7 +37,7 @@
     クリック
   </button>
 
-  <h2>next CSSセレクタ</h2>
+  <h3>next CSSセレクタ</h3>
   <p>A</p>
   <button hx-get="/yahoo" hx-target="next p">クリック</button>
   <p>B</p>

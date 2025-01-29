@@ -28,7 +28,7 @@ def generate_user_id(ip_address: str) -> str:
 
 @app.get("/")
 async def get_home(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse(request, "index.html")
 
 
 @app.websocket("/chatroom")

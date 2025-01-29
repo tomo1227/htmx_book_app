@@ -14,12 +14,12 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 @app.get("/", response_class=HTMLResponse)
 async def read_root(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse(request, "index.html")
 
 
 def section_handler(sec):
     async def handler(request: Request):
-        return templates.TemplateResponse(f"section{sec}.html", {"request": request})
+        return templates.TemplateResponse(request, f"section{sec}.html")
 
     return handler
 

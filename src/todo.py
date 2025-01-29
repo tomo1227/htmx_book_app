@@ -14,13 +14,13 @@ tasks = []
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
     tasks = []
-    return templates.TemplateResponse("index.html", {"request": request, "tasks": tasks})
+    return templates.TemplateResponse(request, "index.html", {"tasks": tasks})
 
 
 @app.post("/add", response_class=HTMLResponse)
 async def add_task(request: Request, task: str = Form(...)):
     tasks.append(task)
-    return templates.TemplateResponse("task.html", {"request": request, "task": task})
+    return templates.TemplateResponse(request, "task.html", {"task": task})
 
 
 @app.delete("/delete", response_class=HTMLResponse)

@@ -204,5 +204,9 @@
     "titleBar.activeForeground": "#e7e7e7",
     "titleBar.inactiveBackground": "#03555a99",
     "titleBar.inactiveForeground": "#e7e7e799"
-  }
+  },
+  "python.analysis.extraPaths": [
+    "/usr/local/vscode/python/3.12.5/lib/python3.12/site-packages",
+    "./src"
+  ]
 }

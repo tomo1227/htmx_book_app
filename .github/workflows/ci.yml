@@ -21,10 +21,8 @@ jobs:
       image: python:3.12-bullseye
 
     steps:
-      # ワークフローの可視化
       - uses: Kesin11/actions-timeline@v2
 
-      # チェックアウト
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref }}
@@ -42,3 +40,6 @@ jobs:
 
       - name: Format
         run: ruff format --check
+
+      - name: Test
+        run: pytest

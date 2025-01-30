@@ -9,6 +9,7 @@
     "source.fixAll.markdownlint": "explicit"
   },
   "editor.rulers": [120],
+  "testExplorer.useNativeTesting": false,
   "[python]": {
     "editor.tabSize": 4,
     "editor.defaultFormatter": "charliermarsh.ruff",
@@ -22,7 +23,6 @@
   },
   "ruff.organizeImports": true,
   "ruff.format.args": ["--config=pyproject.toml"],
-  "python.testing.pytestPath": "/usr/local/python/current/bin/pytest",
   "python.testing.pytestArgs": [
     "tests",
     // NOTE: カバレッジを出力するとdebugできない

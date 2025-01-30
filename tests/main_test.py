@@ -1,3 +1,5 @@
+import re
+
 import pytest
 from fastapi.testclient import TestClient
 
@@ -41,3 +43,33 @@ def test_yahoo():
     assert response.status_code == 200
     assert "text/html" in response.headers["content-type"]
     assert expected_text == response.text
+
+
+def test_generate_random_number():
+    response = client.get("/random")
+    assert response.status_code == 200  # ステータスコードが200であること
+
+    content = response.text
+    assert content.startswith("<span style='color:#ff0000;'")
+    assert content.endswith("</span>")
+
+    match = re.search(r">(\d+)</span>", content)
+    assert match is not None
+    number = int(match.group(1))
+    assert 0 <= number < 10
+
+
+def test_load_polling():
+    response = client.get("/random_polling")
+    assert response.status_code == 200
+
+    content = response.text
+    assert content.startswith("<p style='color:#ff0000;'")
+    assert "hx-get='/random_polling'" in content
+    assert "hx-trigger='load delay:1s'" in content
+    assert content.endswith("</p>")
+
+    match = re.search(r">(\d+)</p>", content)
+    assert match is not None
+    number = int(match.group(1))
+    assert 0 <= number < 10

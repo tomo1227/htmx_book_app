@@ -102,16 +102,3 @@ form button {
   align-self: flex-start;
   background: #bbdefb;
 }
-
-/* #messages::-webkit-scrollbar {
-  width: 8px;
-}
-
-#messages::-webkit-scrollbar-thumb {
-  background: #6200ea;
-  border-radius: 4px;
-}
-
-#messages::-webkit-scrollbar-track {
-  background: #f1f1f1;
-} */

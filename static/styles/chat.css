@@ -46,9 +46,9 @@ body {
 #form input {
   flex: 1;
   padding: 12px;
+  margin-right: 10px;
   border: 1px solid #ddd;
-  border-radius: 20px;
-  font-size: 1rem;
+  border-radius: 10px;
   outline: none;
   transition: all 0.3s ease-in-out;
 }
@@ -58,8 +58,25 @@ body {
   box-shadow: 0 0 5px rgba(98, 0, 234, 0.5);
 }
 
+
+#form input[type="text"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+form button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
 #messages {
-  height: calc(100% - 70px); /* ヘッダーとフォームの高さを引く */
+  height: calc(100% - 70px);
   overflow-y: auto;
   padding: 15px;
   display: flex;

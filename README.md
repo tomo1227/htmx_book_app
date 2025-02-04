@@ -4,8 +4,74 @@
 
 htmxの本で使用するSample Application
 
+# Install
+
+以下のどれかのコマンドでクローンしてください。
+
+```sh
+gh repo clone tomo1227/htmx_book
+```
+
+Or
+
+```sh
+git clone git@github.com:tomo1227/htmx_book.git
+```
+
+Or
+
+```sh
+git clone https://github.com/tomo1227/htmx_book.git
+```
+
 # Usage
+
+## Setup
+
+以下のどれかの環境で実行できます。
+
+* Dev-Containerでコンテナを起動
+* Docker Composeでコンテナを起動
+* ローカルで実行 : Pythonの環境が必要です
+
+## htmxのチュートリアル
+
+htmxの本のチュートリアルです。
 
 ```sh
 make run
+```
+
+Or
+
+```sh
+@uvicorn src.main:app --reload
+```
+
+## ToDo App
+
+シンプルなToDoアプリケーションです。
+
+```sh
+make todo
+```
+
+Or
+
+```sh
+@uvicorn src.todo:app --reload
+```
+
+## Chat App
+
+WebSocketを用いたチャットアプリケーションです。
+
+```sh
+make chat
+```
+
+Or
+
+```sh
+@uvicorn src.chat:app --reload
 ```

@@ -4,26 +4,6 @@
 
 htmxの本で使用するSample Application
 
-# Install
-
-以下のどれかのコマンドでクローンしてください。
-
-```sh
-gh repo clone tomo1227/htmx_book
-```
-
-Or
-
-```sh
-git clone git@github.com:tomo1227/htmx_book.git
-```
-
-Or
-
-```sh
-git clone https://github.com/tomo1227/htmx_book.git
-```
-
 # Usage
 
 ## Setup

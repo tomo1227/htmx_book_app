@@ -12,7 +12,7 @@ tasks = []
 
 
 @app.get("/", response_class=HTMLResponse)
-async def index(request: Request):
+async def root(request: Request):
     tasks = []
     return templates.TemplateResponse(request, "index.html", {"tasks": tasks})
 

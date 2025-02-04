@@ -22,13 +22,8 @@ class Message:
     message: str
 
 
-def generate_user_id(ip_address: str) -> str:
-    hashed_ip = hashlib.sha256(ip_address.encode()).hexdigest()
-    return f"ID:{hashed_ip[:8]}"
-
-
 @app.get("/")
-async def get_home(request: Request):
+async def root(request: Request):
     return templates.TemplateResponse(request, "index.html")
 
 
@@ -43,8 +38,8 @@ async def websocket_endpoint(websocket: WebSocket):
         while True:
             raw_data = await websocket.receive_text()
             data = json.loads(raw_data)
-            input_msg = data.get("message")
             input_name = data.get("name")
+            input_msg = data.get("message")
             now_jst = datetime.now(ZoneInfo("Asia/Tokyo")).strftime("%H:%M:%S")
             msg = f"""
                             <div hx-swap-oob='beforeend:#messages'>
@@ -77,6 +72,12 @@ async def broadcast_message(message: Message):
             clients.remove(client)
 
 
+def generate_user_id(ip_address: str) -> str:
+    hashed_ip = hashlib.sha256(ip_address.encode()).hexdigest()
+    return f"ID:{hashed_ip[:8]}"
+
+
+# コンテナの場合は以下を記述
 if __name__ == "__main__":
     import uvicorn
 

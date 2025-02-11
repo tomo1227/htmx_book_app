@@ -30,7 +30,7 @@ h1 {
   flex-direction: column;
 }
 
-#app-content {
+#app-contents {
   /* width: 80%; */
   height: 100%;
   display: flex;

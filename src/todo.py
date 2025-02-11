@@ -1,11 +1,9 @@
 from fastapi import FastAPI, Form, Request
-from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 app = FastAPI()
-app.add_middleware(TrustedHostMiddleware, allowed_hosts=["*"])
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates/todo")
 tasks = []
@@ -30,6 +28,7 @@ async def delete_task(task: str):
     return HTMLResponse(content="", status_code=204)
 
 
+# コンテナの場合は以下を記述
 if __name__ == "__main__":
     import uvicorn
 

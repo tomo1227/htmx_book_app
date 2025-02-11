@@ -6,25 +6,20 @@ from fastapi.templating import Jinja2Templates
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates/todo")
-tasks = []
 
 
 @app.get("/", response_class=HTMLResponse)
 async def root(request: Request):
-    tasks = []
-    return templates.TemplateResponse(request, "index.html", {"tasks": tasks})
+    return templates.TemplateResponse(request, "index.html")
 
 
 @app.post("/add", response_class=HTMLResponse)
 async def add_task(request: Request, task: str = Form(...)):
-    tasks.append(task)
     return templates.TemplateResponse(request, "task.html", {"task": task})
 
 
 @app.delete("/delete", response_class=HTMLResponse)
 async def delete_task(task: str):
-    if task in tasks:
-        tasks.remove(task)
     return HTMLResponse(content="", status_code=204)
 
 

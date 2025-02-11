@@ -40,6 +40,8 @@ fastapi = "^0.115.8"
 uvicorn = { extras = ["standard"], version = "^0.34.0" }
 jinja2 = "^3.1.5"
 python-multipart = "^0.0.20"
+httpx = "^0.28.1"
+pytest-subtests = "^0.14.1"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.9.6"
@@ -47,3 +49,8 @@ ruff = "^0.9.6"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+disable_test_id_escaping_and_forfeit_all_rights_to_community_support = true
+pythonpath = ["src"]
+testpaths = ["tests"]

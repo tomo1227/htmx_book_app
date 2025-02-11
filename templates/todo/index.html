@@ -3,7 +3,7 @@
 {% block content %}
 <div id="app">
   <h1>ToDo App</h1>
-  <div id="app-content">
+  <div id="app-contents">
     <form hx-post="/add" hx-target="#task-list" hx-swap="beforeend" hx-on::after-request="this.reset()">
       <input type="text" name="task" placeholder="新しいタスク" required>
       <button type="submit">追加</button>
@@ -14,7 +14,7 @@
         <p>{{ task }}</p>
         <button class="delete-btn" hx-target="closest li" hx-delete="/delete" hx-ext='json-enc'
           hx-vals='{"task": "{{ task }}"}' hx-trigger="click" hx-swap="delete"
-          hx-confirm='タスク"{{ task }}"を本当に削除してもよろしいですか?'>削除</button>
+          hx-confirm='"{{ task }}"を本当に削除してもよろしいですか?'>削除</button>
       </li>
       {% endfor %}
     </ul>

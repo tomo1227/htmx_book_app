@@ -1,35 +1,29 @@
 from fastapi import FastAPI, Form, Request
-from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 app = FastAPI()
-app.add_middleware(TrustedHostMiddleware, allowed_hosts=["*"])
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates/todo")
-tasks = []
 
 
 @app.get("/", response_class=HTMLResponse)
-async def index(request: Request):
-    tasks = []
-    return templates.TemplateResponse("index.html", {"request": request, "tasks": tasks})
+async def root(request: Request):
+    return templates.TemplateResponse(request, "index.html")
 
 
 @app.post("/add", response_class=HTMLResponse)
 async def add_task(request: Request, task: str = Form(...)):
-    tasks.append(task)
-    return templates.TemplateResponse("task.html", {"request": request, "task": task})
+    return templates.TemplateResponse(request, "task.html", {"task": task})
 
 
 @app.delete("/delete", response_class=HTMLResponse)
 async def delete_task(task: str):
-    if task in tasks:
-        tasks.remove(task)
     return HTMLResponse(content="", status_code=204)
 
 
+# コンテナの場合は以下を記述
 if __name__ == "__main__":
     import uvicorn
 

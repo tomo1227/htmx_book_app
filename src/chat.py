@@ -5,10 +5,9 @@ from datetime import datetime
 from typing import List
 from zoneinfo import ZoneInfo
 
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect
+from fastapi import FastAPI, Request, WebSocket, WebSocketDisconnect
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from starlette.requests import Request
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -18,18 +17,14 @@ clients: List[WebSocket] = []
 
 @dataclasses.dataclass
 class Message:
-    user: str
+    userid: str
+    username: str
     message: str
 
 
-def generate_user_id(ip_address: str) -> str:
-    hashed_ip = hashlib.sha256(ip_address.encode()).hexdigest()
-    return f"ID:{hashed_ip[:8]}"
-
-
 @app.get("/")
-async def get_home(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+async def root(request: Request):
+    return templates.TemplateResponse(request, "index.html")
 
 
 @app.websocket("/chatroom")
@@ -43,17 +38,20 @@ async def websocket_endpoint(websocket: WebSocket):
         while True:
             raw_data = await websocket.receive_text()
             data = json.loads(raw_data)
+            input_name = data.get("name")
             input_msg = data.get("message")
             now_jst = datetime.now(ZoneInfo("Asia/Tokyo")).strftime("%H:%M:%S")
-            msg = f"""<div hx-swap-oob='beforeend:#messages'>
+            msg = f"""
+                            <div hx-swap-oob='beforeend:#messages'>
                                 <span>
+                                    <span style='color:green'>{input_name}</span>
                                     <span style='color:blue'>{now_jst}</span>
-                                    <span style='color:green'>{user_id}</span>
+                                    <span style='color:purple'>{user_id}</span>
                                     <span>{input_msg}</span>
                                 </span>
                             </div>
                         """
-            message = Message(user=user_id, message=msg.replace("\n", ""))
+            message = Message(userid=user_id, username=input_name, message=msg.replace("\n", ""))
             await broadcast_message(message)
     except WebSocketDisconnect:
         clients.remove(websocket)
@@ -64,7 +62,7 @@ async def broadcast_message(message: Message):
         try:
             await client.send_text(
                 json.dumps(
-                    {"user": message.user, "message": message.message},
+                    {"username": message.username, "userid": message.userid, "message": message.message},
                     ensure_ascii=False,
                 )
             )
@@ -74,8 +72,12 @@ async def broadcast_message(message: Message):
             clients.remove(client)
 
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
+def generate_user_id(ip_address: str) -> str:
+    hashed_ip = hashlib.sha256(ip_address.encode()).hexdigest()
+    return f"ID:{hashed_ip[:8]}"
 
+
+# コンテナの場合は以下を記述
 if __name__ == "__main__":
     import uvicorn
 

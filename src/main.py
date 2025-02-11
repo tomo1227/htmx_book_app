@@ -1,3 +1,4 @@
+## -*- coding: utf-8 -*-
 import secrets
 import time
 
@@ -13,93 +14,19 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 @app.get("/", response_class=HTMLResponse)
-async def read_root(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+async def root(request: Request):
+    return templates.TemplateResponse(request, "index.html")
 
 
-@app.get("/section3", response_class=HTMLResponse)
-async def read_section3(request: Request):
-    return templates.TemplateResponse("section3.html", {"request": request})
+def section_handler(sec):
+    async def handler(request: Request):
+        return templates.TemplateResponse(request, f"section{sec}.html")
+
+    return handler
 
 
-@app.get("/section4", response_class=HTMLResponse)
-async def read_section4(request: Request):
-    return templates.TemplateResponse("section4.html", {"request": request})
-
-
-@app.get("/section5", response_class=HTMLResponse)
-async def read_section5(request: Request):
-    return templates.TemplateResponse("section5.html", {"request": request})
-
-
-@app.get("/section6", response_class=HTMLResponse)
-async def read_section6(request: Request):
-    return templates.TemplateResponse("section6.html", {"request": request})
-
-
-@app.get("/section7", response_class=HTMLResponse)
-async def read_section7(request: Request):
-    return templates.TemplateResponse("section7.html", {"request": request})
-
-
-@app.get("/section8", response_class=HTMLResponse)
-async def read_section8(request: Request):
-    return templates.TemplateResponse("section8.html", {"request": request})
-
-
-@app.get("/section9", response_class=HTMLResponse)
-async def read_section9(request: Request):
-    return templates.TemplateResponse("section9.html", {"request": request})
-
-
-@app.get("/section10", response_class=HTMLResponse)
-async def read_section10(request: Request):
-    return templates.TemplateResponse("section10.html", {"request": request})
-
-
-@app.get("/section11", response_class=HTMLResponse)
-async def read_section11(request: Request):
-    return templates.TemplateResponse("section11.html", {"request": request})
-
-
-@app.get("/section12", response_class=HTMLResponse)
-async def read_section12(request: Request):
-    return templates.TemplateResponse("section12.html", {"request": request})
-
-
-@app.get("/section13", response_class=HTMLResponse)
-async def read_section13(request: Request):
-    return templates.TemplateResponse("section13.html", {"request": request})
-
-
-@app.get("/section14", response_class=HTMLResponse)
-async def read_section14(request: Request):
-    return templates.TemplateResponse("section14.html", {"request": request})
-
-
-@app.get("/section15", response_class=HTMLResponse)
-async def read_section15(request: Request):
-    return templates.TemplateResponse("section15.html", {"request": request})
-
-
-@app.get("/section16", response_class=HTMLResponse)
-async def read_section16(request: Request):
-    return templates.TemplateResponse("section16.html", {"request": request})
-
-
-@app.get("/section17", response_class=HTMLResponse)
-async def read_section17(request: Request):
-    return templates.TemplateResponse("section17.html", {"request": request})
-
-
-@app.get("/section18", response_class=HTMLResponse)
-async def read_section18(request: Request):
-    return templates.TemplateResponse("section18.html", {"request": request})
-
-
-@app.get("/section19", response_class=HTMLResponse)
-async def read_section19(request: Request):
-    return templates.TemplateResponse("section19.html", {"request": request})
+for section in range(3, 17):
+    app.add_api_route(f"/section{section}", section_handler(section), response_class=HTMLResponse)
 
 
 @app.get("/health_check", response_class=JSONResponse)
@@ -110,28 +37,33 @@ async def health_check():
 @app.api_route("/hello", methods=["GET", "POST", "PUT", "PATCH", "DELETE"], response_class=HTMLResponse)
 async def hello(request: Request):
     if request.method == "GET":
-        return HTMLResponse("<span style='color:#ff0000; font-weight: bold;'>GETリクエスト!</span>")
+        return HTMLResponse("<span style='color:#ff0000;'>GETリクエスト!</span>")
     elif request.method == "POST":
-        return HTMLResponse("<span style='color:#00ff00; font-weight: bold;'>POSTリクエスト!</span>")
+        return HTMLResponse("<span style='color:#00bf00;'>POSTリクエスト!</span>")
     elif request.method == "PUT":
-        return HTMLResponse("<span style='color:#0000ff; font-weight: bold;'>PUTリクエスト!</span>")
+        return HTMLResponse("<span style='color:#0000ff;'>PUTリクエスト!</span>")
     elif request.method == "PATCH":
-        return HTMLResponse("<span style='color:#ff00ff; font-weight: bold;'>PATCHリクエスト!</span>")
+        return HTMLResponse("<span style='color:#ff00ff;'>PATCHリクエスト!</span>")
     elif request.method == "DELETE":
-        return HTMLResponse("<span style='color:#ff9900; font-weight: bold;'>DELETEリクエスト!</span>")
+        return HTMLResponse("<span style='color:#ff9900;'>DELETEリクエスト!</span>")
+
+
+@app.get("/yahoo", response_class=HTMLResponse)
+async def yahoo(request: Request):
+    return HTMLResponse("<span style='color:#ff0000;'>やっほー!</span>")
 
 
 @app.get("/random", response_class=HTMLResponse)
 async def generate_random_number(request: Request):
     random_number = secrets.randbelow(10)
-    html_content = f"<span style='color:#ff0000; font-weight: bold;'>{random_number}</span>"
+    html_content = f"<span style='color:#ff0000;'>{random_number}</span>"
     return HTMLResponse(html_content)
 
 
 @app.get("/random_polling", response_class=HTMLResponse)
 async def load_polling(request: Request):
     random_number = secrets.randbelow(10)
-    html_content = f"""<p style='color:#ff0000; font-weight: bold;' hx-get='/random_polling'
+    html_content = f"""<p style='color:#ff0000;' hx-get='/random_polling'
                             hx-trigger='load delay:1s'>{random_number}</p>"""
     return HTMLResponse(html_content)
 
@@ -139,7 +71,7 @@ async def load_polling(request: Request):
 @app.get("/heavy", response_class=HTMLResponse)
 async def heavy_load(request: Request):
     time.sleep(5)
-    html_content = f"<span style='color:#ff0000; font-weight: bold;'>{'ロード完了！'}</span>"
+    html_content = f"<span style='color:#ff0000;'>{'ロード完了！'}</span>"
     return HTMLResponse(html_content)
 
 

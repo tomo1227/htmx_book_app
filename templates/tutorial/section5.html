@@ -3,30 +3,34 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<h1>Section5</h1>
+<div class="section-contents">
+  <h1>Section5</h1>
 
-<h2>トリガーフィルタ1</h2>
-<p id="target1">foo</p>
-<button hx-get="/hello" hx-target="#target1" hx-trigger="click[true]">クリック</button>
+  <h2>トリガーフィルタ hx-trigger</h2>
 
-<h2>トリガーフィルタ2</h2>
-<p id="target2">foo</p>
-<button hx-get="/hello" hx-target="#target2" hx-trigger="click[false]">クリック</button>
+  <h3>click[true]</h3>
+  <p id="target1">foo</p>
+  <button hx-get="/yahoo" hx-target="#target1" hx-trigger="click[true]">クリック</button>
 
-<h2>トリガーフィルタ3</h2>
-<p id="target3">foo</p>
-<button hx-get="/hello" hx-target="#target3" hx-trigger="click[shiftKey]">クリック</button>
+  <h3>click[false]</h3>
+  <p id="target2">foo</p>
+  <button hx-get="/yahoo" hx-target="#target2" hx-trigger="click[false]">クリック</button>
 
-<h2>トリガーフィルタ4</h2>
-<p id="target4">foo</p>
-<button hx-get="/hello" hx-target="#target4" hx-trigger="click[checkGlobalState()]">クリック</button>
-<script>
-  function checkGlobalState() {
-    return true;
-  }
-</script>
+  <h3>click[shiftKey]</h3>
+  <p id="target3">foo</p>
+  <button hx-get="/yahoo" hx-target="#target3" hx-trigger="click[shiftKey]">クリック</button>
 
-<h2>トリガーフィルタ5</h2>
-<p id="target5">foo</p>
-<button hx-get="/hello" hx-target="#target5" hx-trigger="click[shiftKey&&altKey]">クリック</button>
+  <h3>click[checkGlobalState()]</h3>
+  <p id="target4">foo</p>
+  <button hx-get="/yahoo" hx-target="#target4" hx-trigger="click[checkGlobalState()]">クリック</button>
+  <script>
+    function checkGlobalState() {
+      return true;
+    }
+  </script>
+
+  <h3>click[shiftKey&&altKey]</h3>
+  <p id="target5">foo</p>
+  <button hx-get="/yahoo" hx-target="#target5" hx-trigger="click[shiftKey&&altKey]">クリック</button>
+</div>
 {% endblock %}

@@ -1,6 +1,5 @@
-<li id="target">
+<li>
   <p>{{ task }}</p>
-  <button class="delete-btn" hx-target="closest li" hx-delete="/delete" hx-ext='json-enc'
-    hx-vals='{"task": "{{ task }}"}' hx-trigger="click" hx-swap="delete"
-    hx-confirm='"{{ task }}"を本当に削除してもよろしいですか?'>削除</button>
+  <button class="delete-btn" hx-target="closest li" hx-delete="/delete" hx-trigger="click" hx-ext='json-enc'
+    hx-vals='{"task": "{{ task }}"}' hx-swap="delete" hx-confirm='"{{ task }}"を本当に削除してもよろしいですか?'>削除</button>
 </li>

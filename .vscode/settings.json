@@ -9,6 +9,7 @@
     "source.fixAll.markdownlint": "explicit"
   },
   "editor.rulers": [120],
+  "testExplorer.useNativeTesting": false,
   "[python]": {
     "editor.tabSize": 4,
     "editor.defaultFormatter": "charliermarsh.ruff",
@@ -22,7 +23,6 @@
   },
   "ruff.organizeImports": true,
   "ruff.format.args": ["--config=pyproject.toml"],
-  "python.testing.pytestPath": "/usr/local/python/current/bin/pytest",
   "python.testing.pytestArgs": [
     "tests",
     // NOTE: カバレッジを出力するとdebugできない
@@ -204,5 +204,9 @@
     "titleBar.activeForeground": "#e7e7e7",
     "titleBar.inactiveBackground": "#03555a99",
     "titleBar.inactiveForeground": "#e7e7e799"
-  }
+  },
+  "python.analysis.extraPaths": [
+    "/usr/local/vscode/python/3.12.5/lib/python3.12/site-packages",
+    "./src"
+  ]
 }

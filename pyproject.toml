@@ -11,7 +11,7 @@ line-length = 120
 indent-width = 4
 
 [tool.ruff.lint]
-ignore = ["A003", "D415", "E203", "S101", "D100", "D103", "S104"]
+ignore = ["A003", "D415", "E203", "S101", "D100", "D101", "D103", "S104"]
 select = ["A", "N", "E", "D", "W", "F", "I", "C90", "S"]
 
 [tool.ruff.lint.pydocstyle]
@@ -36,14 +36,21 @@ python = "^3.12"
 pytest = "^8.3.4"
 pytest-cov = "^6.0.0"
 pytest-xdist = "^3.6.1"
-fastapi = "^0.115.6"
+fastapi = "^0.115.8"
 uvicorn = { extras = ["standard"], version = "^0.34.0" }
-jinja2 = "^3.1.4"
+jinja2 = "^3.1.5"
 python-multipart = "^0.0.20"
+httpx = "^0.28.1"
+pytest-subtests = "^0.14.1"
 
 [tool.poetry.group.dev.dependencies]
-ruff = "^0.8.4"
+ruff = "^0.9.6"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+disable_test_id_escaping_and_forfeit_all_rights_to_community_support = true
+pythonpath = ["src"]
+testpaths = ["tests"]

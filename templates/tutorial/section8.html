@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="section-contents">
+  <h1>Section8</h1>
+
+  <h2>every</h2>
+  <p id="every-target">foo</p>
+  <p hx-target="#every-target" hx-get="/random" hx-trigger="every 1s">hoge</p>
+
+  <h2>ロードポーリング</h2>
+  <p hx-get="/random_polling" hx-trigger="load delay:1s" hx-target="this">hoge</p>
+
+  <h2>複数のトリガー</h2>
+  <p id="multiple-trigger-target">foo</p>
+  <button hx-target="#multiple-trigger-target" hx-get="/random" hx-trigger="load, click delay:0.5s">クリック</button>
+</div>
+{% endblock %}

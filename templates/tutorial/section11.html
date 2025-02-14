@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="section-contents">
+  <h1>Section11</h1>
+
+  <h2>hx-syncを使っていない例</h2>
+  <p id="target1">foo</p>
+  <p id="target2">hoge</p>
+  <form hx-post="/send-form" hx-target="#target1">
+    <input name="title" type="text" hx-post="/validate" hx-trigger="change" hx-target="#target2" />
+    <button name="drop-form" type="submit">送信</button>
+  </form>
+
+  <h2>drop</h2>
+  <p id="drop-target1">foo</p>
+  <p id="drop-target2">hoge</p>
+  <form hx-post="/send-form" hx-target="#drop-target1" hx-sync="this:drop">
+    <input name="title" type="text" hx-post="/validate" hx-trigger="change" hx-target="#drop-target2" />
+    <button name="drop-form" type="submit">送信</button>
+  </form>
+
+  <h2>abort</h2>
+  <p id="abort-target1">foo</p>
+  <p id="abort-target2">hoge</p>
+  <form hx-post="/send-form" hx-target="#abort-target1">
+    <input name="title" type="text" hx-post="/validate" hx-trigger="change" hx-target="#abort-target2"
+      hx-sync="closest form:abort" />
+    <button name="abort-form" type="submit">送信</button>
+  </form>
+
+  <h2>replace</h2>
+  <p id="replace-target1">foo</p>
+  <p id="replace-target2">hoge</p>
+  <form hx-post="/send-form" hx-target="#replace-target1" hx-sync="this:replace">
+    <input name="title" type="text" hx-post="/validate" hx-trigger="change" hx-target="#replace-target2" />
+    <button name="replace-form" type="submit">送信</button>
+  </form>
+</div>
+{% endblock %}

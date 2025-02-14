@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="chat-app">
+  <h1>Chat App</h1>
+  <div hx-ext="ws" ws-connect="/chatroom">
+    <form id="form" ws-send hx-on::ws-after-send="this.querySelector('[name=message]').value = ''">
+      <input name="name" type="text" placeholder="名前" required>
+      <input name="message" type="text" placeholder="メッセージ" required>
+      <button type="submit">送信</button>
+    </form>
+  </div>
+  <div id="messages"></div>
+</div>
+{% endblock %}

@@ -101,6 +101,24 @@ async def display_last_key(lastkey: str = Form()):
     return HTMLResponse(html_content)
 
 
+@app.get("/not-found")
+async def get_not_found(request: Request):
+    html_content = "<span style='color:#ff0000; font-weight: bold;'>こんにちは！</span>"
+    return HTMLResponse(content=html_content, status_code=404)
+
+
+colors = ["blue", "green", "orange", "red"]
+
+
+@app.get("/colors", response_class=HTMLResponse)
+def get_colors():
+    color = colors.pop(0)
+    colors.append(color)
+    return f"""<div hx-get="/colors" hx-swap="outerHTML" class="smooth" hx-trigger="every 1s" style="color:{color}">
+                こんにちは！
+            </div>"""
+
+
 if __name__ == "__main__":
     import uvicorn
 

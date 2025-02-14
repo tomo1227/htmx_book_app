@@ -7,7 +7,6 @@
   <h1>Section16</h1>
 
   <h2>バリデーション</h2>
-
   <p id="target">入力して送信してください。</p>
   <form id="validate-form" hx-post="/send-form" hx-target="#target">
     <input name="example" onkeyup="this.setCustomValidity('')" hx-on::validation:validate="if(this.value != 'ペンギン') {
@@ -28,5 +27,15 @@
       console.log("htmxロードイベントが発火されました:", evt.detail.elt);
     });
   </script>
+
+  <h2>アニメーション</h2>
+  <div class="smooth" style="color:red" hx-get="/colors" hx-swap="outerHTML" hx-trigger="every 1s">
+    こんにちは！
+  </div>
+  <style>
+    .smooth {
+      transition: all 1s ease-in;
+    }
+  </style>n
 </div>
 {% endblock %}

@@ -55,11 +55,11 @@
 
 
   <h2>hx-vals</h2>
-  <p id="vals-target">foo</p>
-  <button hx-post="/greeting" hx-vals='{"title": "Hello", "name": "Taro"}' hx-target="#vals-target">送信</button>
+  <p id="vals-target1">foo</p>
+  <button hx-post="/greeting" hx-vals='{"title": "Hello", "name": "Taro"}' hx-target="#vals-target1">送信</button>
 
-  <p id="target7">foo</p>
-  <div hx-target="#target7" hx-post="/last-key" hx-trigger="keyup" hx-vals='js:{lastkey: event.key}'>
+  <p id="vals-target2">foo</p>
+  <div hx-target="#vals-target2" hx-post="/last-key" hx-trigger="keyup" hx-vals='js:{lastkey: event.key}'>
     <input type="text" />
   </div>
 </div>

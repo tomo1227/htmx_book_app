@@ -24,6 +24,15 @@
     クリック
   </button>
 
+  <h2>textContent</h2>
+  <div>
+    foo
+    <p id="text-target">hoge</p>
+  </div>
+  <button hx-get="/random" hx-target="#text-target" hx-trigger="click" hx-swap="textContent">
+    クリック
+  </button>
+
   <h2>afterbegin</h2>
   <div>
     foo
@@ -81,10 +90,54 @@
 
   <h2>transition</h2>
   <div>
-    <p id="transition-target">Embrace challenges, for they are the stepping stones to growth.</p>
+    <p>Embrace challenges, for they are the stepping stones to growth.</p>
     <button hx-get="/ja-saying" hx-swap="innerHTML transition:true" hx-target="closest div">
       日本語で翻訳
     </button>
   </div>
+
+  <h2>swap</h2>
+  <p id="swap-target">foo</p>
+  <button hx-get="/random" hx-target="#swap-target" hx-swap="swap:3s" hx-trigger="click">
+    クリック
+  </button>
+
+  <h2>settle</h2>
+  <div>
+    <p>Embrace challenges, for they are the stepping stones to growth.</p>
+    <button hx-get="/ja-saying" hx-swap="innerHTML transition:true swap:3s" hx-target="closest div">
+      日本語で翻訳
+    </button>
+  </div>
+
+  <h2>ignoreTitle</h2>
+  <h3>ignoreTitleがfalseの時</h3>
+  <p id="ignore-target1">foo</p>
+  <button hx-get="/update-title" hx-target="#ignore-target1" hx-swap="ignoreTitle:false" hx-trigger="click">
+    クリック
+  </button>
+  <h3>ignoreTitleがtrueの時</h3>
+  <p id="ignore-target2">foo</p>
+  <button hx-get="/update-title" hx-target="#ignore-target2" hx-swap="ignoreTitle:true" hx-trigger="click">
+    クリック
+  </button>
+
+  <h2>scroll</h2>
+  <div id="scroll-target1"
+    style="height: 300px; width:30%; overflow-y: scroll; border: 1px solid #ccc; background-color: yellow;">
+    <div id="scroll-target2" style="height: 600px;">
+      こんにちは！
+    </div>
+  </div>
+  <button hx-get="/random" hx-target="#scroll-target2" hx-swap="scroll:#scroll-target1:bottom" hx-trigger="click">
+    クリック
+  </button>
+
+
+  <h2>show</h2>
+  <p id="show-target">foo</p>
+  <button hx-get="/random" hx-target="#show-target" hx-swap="show:#beforeend-target:bottom" hx-trigger="click">
+    クリック
+  </button>
 </div>
 {% endblock %}

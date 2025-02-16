@@ -123,7 +123,7 @@ def get_colors():
 async def en_saying():
     return """
     <p>Embrace challenges, for they are the stepping stones to growth.</p>
-    <button hx-get='/ja-saying' hx-swap='innerHTML transition:true' hx-target='#transition-target'>
+    <button hx-get='/ja-saying' hx-swap='innerHTML transition:true' hx-target='closest div'>
         翻訳する
     </button>
     """
@@ -133,9 +133,17 @@ async def en_saying():
 async def ja_saying():
     return """
     <p>挑戦を受け入れよう。それらは成長への踏み石なのだから。</p>
-    <button hx-get='/en-saying' hx-swap='innerHTML transition:true' hx-target='#transition-target'>
+    <button hx-get='/en-saying' hx-swap='innerHTML transition:true' hx-target='closest div'>
         原文に戻す
     </button>
+    """
+
+
+@app.get("/update-title", response_class=HTMLResponse)
+async def update_title():
+    return """
+    <title>New Title</title>
+    <p>hello!</p>
     """
 
 

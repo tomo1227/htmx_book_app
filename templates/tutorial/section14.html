@@ -30,14 +30,21 @@
   </div>
 
   <h2>hx-disinherit</h2>
-  <p id="target3">foo</p>
-  <div hx-target="#target3" hx-disinherit="hx-target">
+  <h3>hx-target指定なし</h3>
+  <p id="no-disinherit-target1">foo</p>
+  <div hx-target="#no-disinherit-target1">
     <button hx-get="/random" hx-trigger="click">クリック</button>
   </div>
 
-  <h2>hx-disinherit</h2>
-  <p id="target4">foo</p>
-  <div hx-target="#target4" hx-confirm="" hx-disinherit="*">
+  <h3>hx-targetを指定</h3>
+  <p id="disinherit-target1">foo</p>
+  <div hx-target="#disinherit-target1" hx-disinherit="hx-target">
+    <button hx-get="/random" hx-trigger="click">クリック</button>
+  </div>
+
+  <h3>*を指定</h3>
+  <p id="disinherit-target2">foo</p>
+  <div hx-target="#disinherit-target2" hx-confirm="" hx-disinherit="*">
     <button hx-get="/random" hx-trigger="click">クリック</button>
   </div>
 </div>

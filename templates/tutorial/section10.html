@@ -9,72 +9,134 @@
   <h2>innerHTML</h2>
   <div>
     foo
-    <p id="target">hoge</p>
+    <p id="inner-target">hoge</p>
   </div>
-  <button hx-get="/random" hx-target="#target" hx-trigger="click" hx-swap="innerHTML">
+  <button hx-get="/random" hx-target="#inner-target" hx-trigger="click" hx-swap="innerHTML">
     クリック
   </button>
 
   <h2>outerHTML</h2>
   <div>
     foo
-    <p id="target2">hoge</p>
+    <p id="outer-target">hoge</p>
   </div>
-  <button hx-get="/random" hx-target="#target2" hx-trigger="click" hx-swap="outerHTML">
+  <button hx-get="/random" hx-target="#outer-target" hx-trigger="click" hx-swap="outerHTML">
+    クリック
+  </button>
+
+  <h2>textContent</h2>
+  <div>
+    foo
+    <p id="text-target">hoge</p>
+  </div>
+  <button hx-get="/random" hx-target="#text-target" hx-trigger="click" hx-swap="textContent">
     クリック
   </button>
 
   <h2>afterbegin</h2>
   <div>
     foo
-    <p id="target3">hoge</p>
+    <p id="afterbegin-target">hoge</p>
   </div>
-  <button hx-get="/random" hx-target="#target3" hx-trigger="click" hx-swap="afterbegin">
+  <button hx-get="/random" hx-target="#afterbegin-target" hx-trigger="click" hx-swap="afterbegin">
     クリック
   </button>
 
   <h2>beforebegin</h2>
   <div>
     foo
-    <p id="target4">hoge</p>
+    <p id="beforebegin-target">hoge</p>
   </div>
-  <button hx-get="/random" hx-target="#target4" hx-trigger="click" hx-swap="beforebegin">
+  <button hx-get="/random" hx-target="#beforebegin-target" hx-trigger="click" hx-swap="beforebegin">
     クリック
   </button>
 
   <h2>beforeend</h2>
   <div>
     foo
-    <p id="target5">hoge</p>
+    <p id="beforeend-target">hoge</p>
   </div>
-  <button hx-get="/random" hx-target="#target5" hx-trigger="click" hx-swap="beforeend">
+  <button hx-get="/random" hx-target="#beforeend-target" hx-trigger="click" hx-swap="beforeend">
     クリック
   </button>
 
   <h2>afterend</h2>
   <div>
     foo
-    <p id="target6">hoge</p>
+    <p id="afterend-target">hoge</p>
   </div>
-  <button hx-get="/random" hx-target="#target6" hx-trigger="click" hx-swap="afterend">
+  <button hx-get="/random" hx-target="#afterend-target" hx-trigger="click" hx-swap="afterend">
     クリック
   </button>
 
   <h2>delete</h2>
   <div>
     foo
-    <p id="target7">hoge</p>
+    <p id="delete-target">hoge</p>
   </div>
-  <button hx-get="/random" hx-target="#target7" hx-trigger="click" hx-swap="delete">
+  <button hx-get="/random" hx-target="#delete-target" hx-trigger="click" hx-swap="delete">
     クリック
   </button>
 
   <h2>none</h2>
   <div>
     foo
-    <p id="target8">hoge</p>
+    <p id="none-target">hoge</p>
   </div>
-  <button hx-get="/random" hx-target="#target8" hx-trigger="click" hx-swap="none">
+  <button hx-get="/random" hx-target="#none-target" hx-trigger="click" hx-swap="none">
+    クリック
+  </button>
+
+
+  <h2>transition</h2>
+  <div>
+    <p>Embrace challenges, for they are the stepping stones to growth.</p>
+    <button hx-get="/ja-saying" hx-swap="innerHTML transition:true" hx-target="closest div">
+      日本語で翻訳
+    </button>
+  </div>
+
+  <h2>swap</h2>
+  <p id="swap-target">foo</p>
+  <button hx-get="/random" hx-target="#swap-target" hx-swap="swap:3s" hx-trigger="click">
+    クリック
+  </button>
+
+  <h2>settle</h2>
+  <div>
+    <p>Embrace challenges, for they are the stepping stones to growth.</p>
+    <button hx-get="/ja-saying" hx-swap="innerHTML transition:true swap:3s" hx-target="closest div">
+      日本語で翻訳
+    </button>
+  </div>
+
+  <h2>ignoreTitle</h2>
+  <h3>ignoreTitleがfalseの時</h3>
+  <p id="ignore-target1">foo</p>
+  <button hx-get="/update-title" hx-target="#ignore-target1" hx-swap="ignoreTitle:false" hx-trigger="click">
+    クリック
+  </button>
+  <h3>ignoreTitleがtrueの時</h3>
+  <p id="ignore-target2">foo</p>
+  <button hx-get="/update-title" hx-target="#ignore-target2" hx-swap="ignoreTitle:true" hx-trigger="click">
+    クリック
+  </button>
+
+  <h2>scroll</h2>
+  <div id="scroll-target1"
+    style="height: 300px; width:30%; overflow-y: scroll; border: 1px solid #ccc; background-color: yellow;">
+    <div id="scroll-target2" style="height: 600px;">
+      こんにちは！
+    </div>
+  </div>
+  <button hx-get="/random" hx-target="#scroll-target2" hx-swap="scroll:#scroll-target1:bottom" hx-trigger="click">
+    クリック
+  </button>
+
+
+  <h2>show</h2>
+  <p id="show-target">foo</p>
+  <button hx-get="/random" hx-target="#show-target" hx-swap="show:#beforeend-target:bottom" hx-trigger="click">
     クリック
   </button>
 </div>

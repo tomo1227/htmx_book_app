@@ -9,8 +9,8 @@
   <h2>hx-param</h2>
 
   <h2>*</h2>
-  <p id="target1">foo</p>
-  <form hx-post="/send-form" hx-params="*" hx-target="#target1">
+  <p id="all-target">foo</p>
+  <form hx-post="/send-form" hx-params="*" hx-target="#all-target">
     <input name="title" type="text" placeholder="タイトル" />
     <input name="name" type="text" placeholder="名前" />
     <input name="age" type="number" placeholder="年齢" />
@@ -18,8 +18,8 @@
   </form>
 
   <h2>none</h2>
-  <p id="target2">foo</p>
-  <form hx-post="/send-form" hx-params="none" hx-target="#target2">
+  <p id="none-target">foo</p>
+  <form hx-post="/send-form" hx-params="none" hx-target="#none-target">
     <input name="title" type="text" placeholder="タイトル" />
     <input name="name" type="text" placeholder="名前" />
     <input name="age" type="number" placeholder="年齢" />
@@ -27,8 +27,8 @@
   </form>
 
   <h2>param-list</h2>
-  <p id="target3">foo</p>
-  <form hx-post="/send-form" hx-params="title,age" hx-target="#target3">
+  <p id="param-target">foo</p>
+  <form hx-post="/send-form" hx-params="title,age" hx-target="#param-target">
     <input name="title" type="text" placeholder="タイトル" />
     <input name="name" type="text" placeholder="名前" />
     <input name="age" type="number" placeholder="年齢" />
@@ -36,8 +36,8 @@
   </form>
 
   <h2>not param-list</h2>
-  <p id="target4">foo</p>
-  <form hx-post="/send-form" hx-params="not title,age" hx-target="#target4">
+  <p id="no-param-target">foo</p>
+  <form hx-post="/send-form" hx-params="not title,age" hx-target="#no-param-target">
     <input name="title" type="text" placeholder="タイトル" />
     <input name="name" type="text" placeholder="名前" />
     <input name="age" type="number" placeholder="年齢" />
@@ -45,17 +45,18 @@
   </form>
 
   <h2>hx-include</h2>
-  <p id="target5">foo</p>
+  <p id="include-target">foo</p>
   <div>
     <input name="title" type="text" placeholder="タイトル" />
     <input name="name" type="text" placeholder="名前" />
     <input name="age" type="number" placeholder="年齢" />
-    <button hx-post="/send-form" hx-include="preview [name='name']" hx-target="#target5">送信</button>
+    <button hx-post="/send-form" hx-include="previous [name='name']" hx-target="#include-target">送信</button>
   </div>
 
+
   <h2>hx-vals</h2>
-  <p id="target6">foo</p>
-  <button hx-post="/greeting" hx-vals='{"title": "Hello", "name": "Taro"}' hx-target="#target6">送信</button>
+  <p id="vals-target">foo</p>
+  <button hx-post="/greeting" hx-vals='{"title": "Hello", "name": "Taro"}' hx-target="#vals-target">送信</button>
 
   <p id="target7">foo</p>
   <div hx-target="#target7" hx-post="/last-key" hx-trigger="keyup" hx-vals='js:{lastkey: event.key}'>

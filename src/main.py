@@ -101,10 +101,22 @@ async def display_last_key(lastkey: str = Form()):
     return HTMLResponse(html_content)
 
 
+@app.get("/success")
+async def get_success(request: Request):
+    html_content = "<span style='color:#ff0000; font-weight: bold;'>Success!</span>"
+    return HTMLResponse(content=html_content, status_code=200)
+
+
 @app.get("/not-found")
 async def get_not_found(request: Request):
-    html_content = "<span style='color:#ff0000; font-weight: bold;'>こんにちは！</span>"
+    html_content = "<span style='color:#ff0000; font-weight: bold;'>Not Found!</span>"
     return HTMLResponse(content=html_content, status_code=404)
+
+
+@app.get("/server-error")
+async def get_server_error(request: Request):
+    html_content = "<span style='color:#ff0000; font-weight: bold;'>Internal Server Error!</span>"
+    return HTMLResponse(content=html_content, status_code=500)
 
 
 colors = ["blue", "green", "orange", "red"]
@@ -144,6 +156,39 @@ async def update_title():
     return """
     <title>New Title</title>
     <p>hello!</p>
+    """
+
+
+@app.get("/update-head", response_class=HTMLResponse)
+async def update_head():
+    return """
+    <head hx-head="merge">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FastAPI with htmx</title>
+        <link rel="stylesheet" href="/static/styles/tutorial2.css">
+    </head>
+    """
+
+
+@app.get("/re-eval-head", response_class=HTMLResponse)
+async def re_eval_head():
+    return """
+    <head hx-head="re-eval">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FastAPI with htmx</title>
+        <link rel="stylesheet" href="/static/styles/tutorial2.css">
+    </head>
+    """
+
+
+@app.get("/append-head", response_class=HTMLResponse)
+async def add_head_style():
+    return """
+    <head hx-head="append">
+        <link rel="stylesheet" href="/static/styles/tutorial2.css">
+    </head>
     """
 
 

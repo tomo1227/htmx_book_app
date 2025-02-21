@@ -6,13 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FastAPI with htmx</title>
   <link rel="stylesheet" href="/static/styles/tutorial.css">
-  <script src="{{ url_for('static', path='/htmx/htmx.js') }}"></script>
-  <script src="{{ url_for('static', path='/htmx/ext/json-enc.js') }}"></script>
-  <script src="https://unpkg.com/htmx-ext-debug@2.0.0/debug.js"></script>
-  <script src="https://unpkg.com/htmx-ext-remove-me@2.0.0/remove-me.js"></script>
-  {#
-  <script src="https://unpkg.com/htmx-ext-ajax-header@2.0.1/ajax-header.js"></script> #}
-  <link rel="icon" href="{{ url_for('static', path='/favicon.ico') }}" />
+  <script src="{{ url_for('static', path='/htmx/htmx.js') }}" hx-preserve="true"></script>
+  {# Core Extensions #}
+  <script src="{{ url_for('static', path='/htmx/ext/head-support.js') }}" hx-preserve="true"></script>
+  <script src="{{ url_for('static', path='/htmx/ext/preload.js') }}" hx-preserve="true"></script>
+  <script src="{{ url_for('static', path='/htmx/ext/response-targets.js') }}" hx-preserve="true"></script>
+  {# Community Extensions #}
+  <script src="{{ url_for('static', path='/htmx/ext/ajax-header.js') }}" hx-preserve="true"></script>
+  <script src="{{ url_for('static', path='/htmx/ext/json-enc.js') }}" hx-preserve="true"></script>
+  <script src="{{ url_for('static', path='/htmx/ext/debug.js') }}" hx-preserve="true"></script>
+  <script src="{{ url_for('static', path='/htmx/ext/remove-me.js') }}" hx-preserve="true"></script>
+  <link rel="icon" href="{{ url_for('static', path='/favicon.ico') }}" hx-preserve="true" />
 </head>
 
 <body>

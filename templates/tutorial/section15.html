@@ -6,19 +6,73 @@
 <div class="section-contents">
   <h1>Section15</h1>
 
-  <p>json-enc</p>
-  <form hx-post="/send-form" hx-ext='json-enc' hx-params="*" hx-target="#target1">
+  <h2>head-support</h2>
+  <h3>merge</h3>
+  <div hx-ext="head-support">
+    <button hx-get="/update-head" hx-swap="none">クリック</button>
+  </div>
+
+  <h3>re-eval</h3>
+  <div hx-ext="head-support">
+    <button hx-get="/re-eval-head" hx-swap="none">クリック</button>
+  </div>
+
+  <h3>append</h3>
+  <div hx-ext="head-support">
+    <button hx-get="/append-head" hx-swap="none">クリック</button>
+  </div>
+
+  <h2>preload</h2>
+  <div hx-ext="preload">
+    <h3>GETリクエスト(preloadなし)</h3>
+    <p id="preload-target1">foo</p>
+    <button hx-target="#preload-target1" hx-get="/hello">GETボタン</button>
+    <h3>GETリクエスト(preloadあり)</h3>
+    <p id="preload-target2">foo</p>
+    <button hx-target="#preload-target2" hx-get="/hello" preload>GETボタン</button>
+    <h3>POSTリクエスト(preloadあり)</h3>
+    <p id="preload-target3">foo</p>
+    <button hx-target="#preload-target3" hx-post="/hello" preload>POSTボタン</button>
+  </div>
+
+  <h2>response-targets</h2>
+  <div hx-ext="response-targets">
+    <button hx-get="/success" hx-target="#success" hx-target-404="#not-found" hx-target-5*="#server-error">
+      ボタンA
+    </button>
+    <button hx-get="/not-found" hx-target="#success" hx-target-404="#not-found" hx-target-5*="#server-error">
+      ボタンB
+    </button>
+    <button hx-get="/server-error" hx-target="#success" hx-target-404="#not-found" hx-target-5*="#server-error">
+      ボタンC
+    </button>
+    <div id="success">foo</div>
+    <div id="not-found">bar</div>
+    <div id="server-error">hoge</div>
+  </div>
+
+  <h2>ajax-header</h2>
+  <form hx-ext="ajax-header" hx-post="/send-form" hx-params="*" hx-target="#ajax-header-target">
     <input name="title" type="text" placeholder="タイトル" />
     <input name="name" type="text" placeholder="名前" />
     <input name="age" type="number" placeholder="年齢" />
     <button type="submit">送信</button>
   </form>
-  <p id="target1"></p>
+  <p id="ajax-header-target">foo</p>
 
-  <p>debug</p>
-  <button hx-ext="debug">クリック</button>
+  <h2>json-enc</h2>
+  <form hx-post="/send-form" hx-ext='json-enc' hx-params="*" hx-target="#json-enc-target">
+    <input name="title" type="text" placeholder="タイトル" />
+    <input name="name" type="text" placeholder="名前" />
+    <input name="age" type="number" placeholder="年齢" />
+    <button type="submit">送信</button>
+  </form>
+  <p id="json-enc-target">foo</p>
 
-  <p>remove-me</p>
+  <h2>debug</h2>
+  <button hx-ext="debug" hx-get="yahoo">クリック</button>
+
+  <h2>remove-me</h2>
   <div hx-ext="remove-me">
     <div remove-me="5s">5秒後に消えます</div>
   </div>

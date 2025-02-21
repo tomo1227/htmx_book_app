@@ -44,7 +44,7 @@ httpx = "^0.28.1"
 pytest-subtests = "^0.14.1"
 
 [tool.poetry.group.dev.dependencies]
-ruff = "^0.9.6"
+ruff = "^0.9.7"
 
 [build-system]
 requires = ["poetry-core"]

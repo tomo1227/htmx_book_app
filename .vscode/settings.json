@@ -22,7 +22,6 @@
     "files.insertFinalNewline": true
   },
   "ruff.organizeImports": true,
-  "ruff.format.args": ["--config=pyproject.toml"],
   "python.testing.pytestArgs": [
     "tests",
     // NOTE: カバレッジを出力するとdebugできない

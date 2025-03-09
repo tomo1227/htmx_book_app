@@ -6,8 +6,6 @@
   "forwardPorts": [8000],
   "remoteUser": "vscode",
   "remoteEnv": {
-    "USE_DEV_CONTAINER": "true",
-    "PIPENV_VENV_IN_PROJECT": "false",
     "PIP_DEFAULT_TIMEOUT": "100", // デフォルト(15秒)だとタイムアウトする場合があるので設定
     "POETRY_REQUESTS_TIMEOUT": "100"
   },

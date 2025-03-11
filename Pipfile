@@ -1,0 +1,21 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[requires]
+python_version = "3.12"
+
+[packages]
+pytest = "^8.3.5"
+pytest-cov = "^6.0.0"
+pytest-xdist = "^3.6.1"
+fastapi = "^0.115.11"
+uvicorn = {extras = ["standard"], version = "^0.34.0"}
+jinja2 = "^3.1.6"
+python-multipart = "^0.0.20"
+httpx = "^0.28.1"
+pytest-subtests = "^0.14.1"
+
+[dev-packages]
+ruff = "^0.9.10"

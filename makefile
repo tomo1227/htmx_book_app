@@ -1,3 +1,6 @@
+SHELL=/bin/bash
+.SHELLFLAGS := -eu -o pipefail -c
+
 # サーバー起動
 .PHONY: run
 run:
@@ -29,15 +32,15 @@ ext:
 
 .PHONY: lint
 lint:
-	ruff check
+	$(call run_command, ruff check)
 
 .PHONY: fix
 fix:
-	ruff check --fix
+	$(call run_command, ruff check --fix)
 
 .PHONY: format
 format:
-	ruff format
+	$(call run_command, ruff format)
 
 .PHONY: todo
 todo:
@@ -46,3 +49,22 @@ todo:
 .PHONY: chat
 chat:
 	@uvicorn src.chat:app --reload
+
+# 推奨拡張機能の一括インストール
+.PHONY: ext
+ext:
+	./install_extentions.sh
+
+.PHONY: log
+log:
+	docker compose logs -f
+
+.PHONY: run_command
+# 仮想環境を使用する場合と使用しない場合でPathを変更する
+define run_command
+if [ "${PIPENV_VENV_IN_PROJECT}" != "false" ] && [  "${PIPENV_ACTIVE}" != 1 ]; then \
+    pipenv run $1 ; \
+else \
+    $1 ; \
+fi
+endef

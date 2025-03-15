@@ -1,7 +1,7 @@
 # サーバー起動
 .PHONY: run
 run:
-	@uvicorn src.main:app --reload
+	@uvicorn src.main:app --reload --host 0.0.0.0 --port 80
 
 # テスト　&カバレッジ(XML)　VSCode上で可視化できる。
 .PHONY: test
@@ -41,8 +41,8 @@ format:
 
 .PHONY: todo
 todo:
-	@uvicorn src.todo:app --reload
+	@uvicorn src.todo:app --reload --host 0.0.0.0 --port 80
 
 .PHONY: chat
 chat:
-	@uvicorn src.chat:app --reload
+	@uvicorn src.chat:app --reload --host 0.0.0.0 --port 80

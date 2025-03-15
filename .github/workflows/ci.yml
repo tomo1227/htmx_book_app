@@ -27,18 +27,18 @@ jobs:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
 
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
       - name: Install Package
         run: |
-          pip install --no-cache-dir --upgrade pip
-          pip install --no-cache-dir poetry
-          poetry config virtualenvs.create false
-          poetry install
+          uv sync --dev
 
       - name: Lint
-        run: ruff check --output-format=github
+        run: uv run ruff check --output-format=github
 
       - name: Format
-        run: ruff format --check
+        run: uv run ruff format --check
 
       - name: Test
-        run: pytest
+        run: uv run pytest

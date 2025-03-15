@@ -25,7 +25,7 @@ line-ending = "auto"
 docstring-code-format = false
 
 [project]
-name = "workspace"
+name = "app"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -43,16 +43,8 @@ dependencies = [
 ]
 
 [dependency-groups]
-dev = [
-    "ruff>=0.9.10",
-]
+dev = ["ruff>=0.9.10"]
 
 [tool.pytest.ini_options]
-disable_test_id_escaping_and_forfeit_all_rights_to_community_support = true
 pythonpath = ["src"]
 testpaths = ["tests"]
-name = "workspace"
-version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
-requires-python = ">=3.13"

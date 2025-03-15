@@ -10,7 +10,6 @@
     "POETRY_REQUESTS_TIMEOUT": "100"
   },
   "features": {
-    // "ghcr.io/devcontainers/features/common-utils:2": {},
     "ghcr.io/devcontainers/features/git:1": {}
   },
   "postCreateCommand": "sh .devcontainer/scripts/post_create.sh",

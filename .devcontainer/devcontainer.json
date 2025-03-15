@@ -4,26 +4,14 @@
   "workspaceFolder": "/workspace",
   "dockerComposeFile": ["../compose.yml"],
   "forwardPorts": [8000],
-  "remoteUser": "vscode",
+  "remoteUser": "htmx-book",
   "remoteEnv": {
     "PIP_DEFAULT_TIMEOUT": "100", // デフォルト(15秒)だとタイムアウトする場合があるので設定
     "POETRY_REQUESTS_TIMEOUT": "100"
   },
   "features": {
-    "ghcr.io/devcontainers/features/python": {
-      "version": "3.12.5",
-      "installTools": false,
-      "toolsToInstall": "",
-      "installPath": "/usr/local/vscode/python"
-    },
-    "ghcr.io/devcontainers/features/common-utils": {
-      "installZsh": false,
-      "installOhMyZsh": false,
-      "installOhMyZshConfig": false,
-      "username": "vscode",
-      "userUid": "1000",
-      "userGid": "1000"
-    }
+    // "ghcr.io/devcontainers/features/common-utils:2": {},
+    "ghcr.io/devcontainers/features/git:1": {}
   },
   "postCreateCommand": "sh .devcontainer/scripts/post_create.sh",
   "postStartCommand": "sh .devcontainer/scripts/post_start.sh ${containerWorkspaceFolder}",

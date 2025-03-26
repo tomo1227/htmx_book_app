@@ -4,36 +4,19 @@
   "workspaceFolder": "/workspace",
   "dockerComposeFile": ["../compose.yml"],
   "forwardPorts": [8000],
-  "remoteUser": "vscode",
-  "remoteEnv": {
-    "PIP_DEFAULT_TIMEOUT": "100", // デフォルト(15秒)だとタイムアウトする場合があるので設定
-    "POETRY_REQUESTS_TIMEOUT": "100"
-  },
+  "remoteUser": "htmx-book",
   "features": {
-    "ghcr.io/devcontainers/features/python": {
-      "version": "3.12.5",
-      "installTools": false,
-      "toolsToInstall": "",
-      "installPath": "/usr/local/vscode/python"
-    },
-    "ghcr.io/devcontainers/features/common-utils": {
-      "installZsh": false,
-      "installOhMyZsh": false,
-      "installOhMyZshConfig": false,
-      "username": "vscode",
-      "userUid": "1000",
-      "userGid": "1000"
-    }
+    "ghcr.io/devcontainers/features/git:1": {}
   },
   "postCreateCommand": "sh .devcontainer/scripts/post_create.sh",
   "postStartCommand": "sh .devcontainer/scripts/post_start.sh ${containerWorkspaceFolder}",
   "customizations": {
     "vscode": {
       "settings": {
-        "python.defaultInterpreterPath": "/usr/local/vscode/python/current/bin/",
+        "python.defaultInterpreterPath": "/usr/local/bin/",
         "python.terminal.activateEnvironment": false,
-        "python.testing.pytestPath": "/usr/local/vscode/python/current/bin/pytest",
-        "ruff.path": ["/usr/local/vscode/python/current/bin/ruff"]
+        "python.testing.pytestPath": "/usr/local/bin/pytest",
+        "ruff.path": ["/usr/local/bin/ruff"]
       },
       "extensions": [
         // python関連

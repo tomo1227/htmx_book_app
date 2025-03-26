@@ -10,6 +10,7 @@
   },
   "editor.rulers": [120],
   "testExplorer.useNativeTesting": false,
+  "terminal.integrated.shell.linux": "/bin/bash",
   "[python]": {
     "editor.tabSize": 4,
     "editor.defaultFormatter": "charliermarsh.ruff",

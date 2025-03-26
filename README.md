@@ -6,13 +6,33 @@ htmxの本で使用するSample Application
 
 # Usage
 
+## Download
+
 ## Setup
 
-以下のどれかの環境で実行できます。
+以下コマンドでcloneしてください。
 
-* Dev-Containerでコンテナを起動
-* Docker Composeでコンテナを起動
-* ローカルで実行 : Pythonの環境が必要です
+```sh
+git clone https://github.com/tomo1227/htmx_book_app.git
+```
+
+起動は以下3つの方法で実行できます。
+
+1. Dev-Containerでコンテナを起動
+2. Docker Composeでコンテナを起動
+3. ローカルで実行 (Python 3.13.2、uvのインストールが事前に必要)
+
+### Dev-Container
+
+Dev-Containerで先ほどcloneした`htmx_book_app`を開くと起動されます。
+
+### Docker Compose
+
+以下コマンドをローカルで叩くと起動できます。
+
+```sh
+docker compose up -d
+```
 
 ## htmxのチュートリアル
 
@@ -25,8 +45,11 @@ make run
 Or
 
 ```sh
-@uvicorn src.main:app --reload
+uvicorn src.main:app --reload
 ```
+
+Dev-Container : ローカル環境で http://127.0.0.1:8000/ にアクセスしてください。
+Docker Compose : ローカル環境で http://0.0.0.0:8000/ にアクセスしてください。
 
 ## ToDo App
 

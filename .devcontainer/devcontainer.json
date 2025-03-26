@@ -5,10 +5,6 @@
   "dockerComposeFile": ["../compose.yml"],
   "forwardPorts": [8000],
   "remoteUser": "htmx-book",
-  "remoteEnv": {
-    "PIP_DEFAULT_TIMEOUT": "100", // デフォルト(15秒)だとタイムアウトする場合があるので設定
-    "POETRY_REQUESTS_TIMEOUT": "100"
-  },
   "features": {
     "ghcr.io/devcontainers/features/git:1": {}
   },
@@ -17,10 +13,10 @@
   "customizations": {
     "vscode": {
       "settings": {
-        "python.defaultInterpreterPath": "/usr/local/vscode/python/current/bin/",
+        "python.defaultInterpreterPath": "/usr/local/bin/",
         "python.terminal.activateEnvironment": false,
-        "python.testing.pytestPath": "/usr/local/vscode/python/current/bin/pytest",
-        "ruff.path": ["/usr/local/vscode/python/current/bin/ruff"]
+        "python.testing.pytestPath": "/usr/local/bin/pytest",
+        "ruff.path": ["/usr/local/bin/ruff"]
       },
       "extensions": [
         // python関連

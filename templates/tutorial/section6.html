@@ -68,7 +68,25 @@
   </div>
 
   <h3>queue</h3>
-  <p class="btn3" hx-trigger="queue:all">foo</p>
-  <button hx-target=".btn3" hx-get="/random" hx-trigger="click delay:2s queue:all">わーい</button>
+  <p>first</p>
+  <button hx-post="/now" hx-trigger="click queue:first" hx-target="#result" hx-swap="beforeend">
+    最初だけ送信
+  </button>
+  <div id="result"></div>
+  <p>all</p>
+  <button hx-post="/now" hx-trigger="click queue:all" hx-target="#result" hx-swap="beforeend">
+    全部送信
+  </button>
+  <p>last</p>
+  <button hx-post="/now" hx-trigger="click queue:last" hx-target="#result" hx-swap="beforeend">
+    最後だけ送信
+  </button>
+  <p>none</p>
+  <button hx-post="/now" hx-trigger="click queue:none" hx-target="#result" hx-swap="beforeend">
+    無視する
+  </button>
+
+  <div id="result"></div>
+
 </div>
 {% endblock %}

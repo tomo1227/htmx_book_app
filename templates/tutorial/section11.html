@@ -38,5 +38,27 @@
     <input name="title" type="text" hx-post="/validate" hx-trigger="change" hx-target="#replace-target2" />
     <button name="replace-form" type="submit">送信</button>
   </form>
+
+  <h2>queue</h2>
+  <p id="queue-first-target1">first</p>
+  <p id="queue-first-target2">foo</p>
+  <form hx-post="/now" hx-target="#queue-first-target1" hx-sync="this:queue first" hx-swap="beforeend">
+    <input name="title" type="text" hx-post="/validate" hx-trigger="change" hx-target="#queue-first-target2" />
+    <button name="queue-first-form" type="submit">送信</button>
+  </form>
+
+  <p id="queue-last-target1">last</p>
+  <p id="queue-last-target2">foo</p>
+  <form hx-post="/now" hx-target="#queue-last-target1" hx-sync="this:queue last" hx-swap="beforeend">
+    <input name="title" type="text" hx-post="/validate" hx-trigger="change" hx-target="#queue-last-target2" />
+    <button name="queue-last-form" type="submit">送信</button>
+  </form>
+
+  <p id="queue-all-target1">all</p>
+  <p id="queue-all-target2">foo</p>
+  <form hx-post="/now" hx-target="#queue-all-target1" hx-sync="this:queue all" hx-swap="beforeend">
+    <input name="title" type="text" hx-post="/validate" hx-trigger="change" hx-target="#queue-all-target2" />
+    <button name="queue-all-form" type="submit">送信</button>
+  </form>
 </div>
 {% endblock %}

@@ -1,6 +1,8 @@
 ## -*- coding: utf-8 -*-
 import secrets
 import time
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 from fastapi import FastAPI, Form, Request
 from fastapi.responses import JSONResponse
@@ -190,6 +192,14 @@ async def add_head_style():
         <link rel="stylesheet" href="/static/styles/tutorial2.css">
     </head>
     """
+
+
+@app.post("/now", response_class=HTMLResponse)
+async def get_now():
+    now = datetime.now(ZoneInfo("Asia/Tokyo")).strftime("%H:%M:%S")
+    time.sleep(3)
+
+    return f"<div>{now}</div>"
 
 
 if __name__ == "__main__":

@@ -197,7 +197,7 @@ async def add_head_style():
 @app.post("/now", response_class=HTMLResponse)
 async def get_now():
     now = datetime.now(ZoneInfo("Asia/Tokyo")).strftime("%H:%M:%S")
-    time.sleep(3)
+    time.sleep(2)
 
     return f"<div>{now}</div>"
 

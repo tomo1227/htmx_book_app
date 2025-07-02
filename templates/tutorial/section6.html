@@ -68,15 +68,15 @@
   </div>
 
   <h3>queue</h3>
+  <p>all</p>
+  <button hx-post="/now" hx-trigger="click queue:all" hx-target="#result" hx-swap="beforeend">
+    全部送信
+  </button>
   <p>first</p>
   <button hx-post="/now" hx-trigger="click queue:first" hx-target="#result" hx-swap="beforeend">
     最初だけ送信
   </button>
   <div id="result"></div>
-  <p>all</p>
-  <button hx-post="/now" hx-trigger="click queue:all" hx-target="#result" hx-swap="beforeend">
-    全部送信
-  </button>
   <p>last</p>
   <button hx-post="/now" hx-trigger="click queue:last" hx-target="#result" hx-swap="beforeend">
     最後だけ送信

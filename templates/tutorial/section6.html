@@ -69,24 +69,25 @@
 
   <h3>queue</h3>
   <p>all</p>
-  <button hx-post="/now" hx-trigger="click queue:all" hx-target="#result" hx-swap="beforeend">
+  <button hx-post="/now" hx-trigger="click queue:all" hx-target="#result1" hx-swap="beforeend">
     全部送信
   </button>
+  <div id="result1"></div>
   <p>first</p>
-  <button hx-post="/now" hx-trigger="click queue:first" hx-target="#result" hx-swap="beforeend">
+  <button hx-post="/now" hx-trigger="click queue:first" hx-target="#result2" hx-swap="beforeend">
     最初だけ送信
   </button>
-  <div id="result"></div>
+  <div id="result2"></div>
   <p>last</p>
-  <button hx-post="/now" hx-trigger="click queue:last" hx-target="#result" hx-swap="beforeend">
+  <button hx-post="/now" hx-trigger="click queue:last" hx-target="#result3" hx-swap="beforeend">
     最後だけ送信
   </button>
+  <div id="result3"></div>
   <p>none</p>
-  <button hx-post="/now" hx-trigger="click queue:none" hx-target="#result" hx-swap="beforeend">
+  <button hx-post="/now" hx-trigger="click queue:none" hx-target="#result4" hx-swap="beforeend">
     無視する
   </button>
-
-  <div id="result"></div>
+  <div id="result4"></div>
 
 </div>
 {% endblock %}

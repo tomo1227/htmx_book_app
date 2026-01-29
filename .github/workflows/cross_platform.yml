@@ -21,7 +21,7 @@ jobs:
       packages: write
     steps:
       # ワークフローの可視化
-      - uses: Kesin11/actions-timeline@v2
+      - uses: Kesin11/actions-timeline@v3
       # チェックアウト
       - uses: actions/checkout@v5
         with:

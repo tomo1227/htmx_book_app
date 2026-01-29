@@ -20,7 +20,7 @@ jobs:
       image: python:3.12-bullseye
 
     steps:
-      - uses: Kesin11/actions-timeline@v2
+      - uses: Kesin11/actions-timeline@v3
 
       - uses: actions/checkout@v5
         with:
